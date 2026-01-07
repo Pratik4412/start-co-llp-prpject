@@ -1,0 +1,129 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* :root {
+
+
+    --headingFont: "Manrope", sans-serif;
+    --bodyFont: "Work Sans", sans-serif;
+    --interFont: "Inter", sans-serif;
+} */
+
+:root {
+    --color-primary: #6F6F6F;
+    --color-primary-dark: #3A3A3A;
+    --color-primary-light: #BFBFBF;
+    --color-white: #FFFFFF;
+    --color-off-white: #F2F2F2;
+    --color-muted: #D9D9D9;
+    --color-light-bg: #F7F7F7;
+    --headingFont: "Manrope", sans-serif;
+    --bodyFont: "Work Sans", sans-serif;
+    --interFont: "Inter", sans-serif;
+
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --transition: all 0.3s ease;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    background: var(--color-primary-dark);
+}
+
+.hero-section {
+    width: 100%;
+    height: 100vh;
+    background-image: url(./assets//landingpage/bgi.avif);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    position: relative;
+}
+
+.animation-delay-300 {
+    animation-delay: 300ms;
+}
+
+.animation-delay-600 {
+    animation-delay: 600ms;
+}
+
+@keyframes ping {
+
+    75%,
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.animate-ping {
+    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.lg\:sticky {
+    position: sticky;
+}
+
+.lg\:top-24 {
+    top: 6rem;
+}
+
+.self-start {
+    align-self: flex-start;
+}
+
+@supports (position: sticky) {
+    .lg\:sticky {
+        position: -webkit-sticky;
+        /* Safari */
+        position: sticky;
+    }
+}
+
+.container {
+    overflow: visible !important;
+}
+
+section {
+    overflow-x: clip;
+}
+
+/* Animation delay utility */
+.animation-delay-1000 {
+    animation-delay: 1s;
+}
+
+/* Pulse animation for background elements */
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.15;
+        transform: scale(1.05);
+    }
+}
+
+/* Smooth transitions for all footer elements */
+footer * {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover effect for social icons */
+footer a:hover {
+    transform: translateY(-2px);
+}
