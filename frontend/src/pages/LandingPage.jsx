@@ -1,8 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import AnimatedSection from "../components/AnimatedSection";
 import MapValue from "../components/homeSection/MapValue";
-import { FaAward, FaHandshake, FaChartLine, FaShieldAlt } from "react-icons/fa";
-
+// import { FaAward, FaHandshake, FaChartLine, FaShieldAlt } from "react-icons/fa";
+import {
+  FaShieldAlt,
+  FaAward,
+  FaBalanceScale,
+  FaGavel,
+  FaBookOpen,
+  FaChartLine,
+} from "react-icons/fa";
 const LandingPage = () => {
   const stats = [
     {
@@ -112,6 +119,24 @@ const LandingPage = () => {
                 Regulatory Consulting, Corporate Finance, and Management
                 Advisory.
               </p>
+              {/* <p className="text-base md:text-lg text-gray-700 font-body leading-relaxed">
+                M/s. S T A R S & Co. LLP (Previously known as Prashant Mittal
+                and Co. LLP) is a multi-disciplinary professional firm providing
+                comprehensive financial and regulatory services, including Audit
+                & Assurance, US GAAP Restatement, Taxation, Foreign Exchange &
+                Regulatory Consulting, Corporate Finance, and Management
+                Advisory. Led by experienced partners and supported by a dynamic
+                team, the firm operates with an unwavering commitment to
+                quality, ethics, and professionalism.
+              </p>{" "}
+              <br />
+              <p className="text-base md:text-lg text-gray-700 font-body leading-relaxed">
+                Our operations are built on integrity, innovation, and
+                client-centricity. We are empanelled with various leading
+                nationalized and private sector banks and hold RBI, IBA, and CAG
+                empanelments, signifying our credibility and professional
+                capability in handling high-value assignments.
+              </p> */}
             </AnimatedSection>
           </div>
 
@@ -144,7 +169,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      <section className="bg-white py-12 md:py-20">
+      {/* <section className="bg-white py-12 md:py-20">
         <div className="container mx-auto px-5 md:px-10 lg:px-20">
           <AnimatedSection animation="fade-up" delay={200}>
             <div className="text-center mb-10 md:mb-16">
@@ -213,6 +238,150 @@ const LandingPage = () => {
                   Leveraging technology and modern approaches for efficient
                   service delivery
                 </p>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section> */}
+
+      {/* Core Values Section */}
+      <section className="bg-white py-12 md:py-20">
+        <div className="container mx-auto px-5 md:px-10 lg:px-20">
+          <AnimatedSection animation="fade-up" delay={200}>
+            <div className="text-center mb-10 md:mb-16">
+              <div className="inline-block mb-4">
+                <span className="text-secondary-600 font-semibold text-xs md:text-sm uppercase tracking-wider px-4 py-2 bg-secondary-100 rounded-full shadow-sm">
+                  Our Foundation
+                </span>
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-dark mb-4">
+                Our Core Values
+              </h2>
+              <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                The principles that guide our professional conduct and client
+                relationships
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {/* Integrity */}
+            <AnimatedSection animation="fade-up" delay={200}>
+              <div className="group relative bg-gradient-to-br from-white to-primary-50 p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-secondary-400 overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-secondary-100 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500 opacity-50"></div>
+
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-br from-secondary-400 to-secondary-600 rounded-full flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                    <FaShieldAlt className="text-primary text-2xl" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-heading font-bold mb-3 text-gray-900 group-hover:text-secondary-700 transition-colors">
+                    Integrity
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                    Unwavering commitment to ethical practices and transparency
+                    in all professional engagements
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Quality */}
+            <AnimatedSection animation="fade-up" delay={300}>
+              <div className="group relative bg-gradient-to-br from-white to-primary-50 p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-secondary-400 overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-secondary-100 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500 opacity-50"></div>
+
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-br from-secondary-400 to-secondary-600 rounded-full flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                    <FaAward className="text-primary text-2xl" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-heading font-bold mb-3 text-gray-900 group-hover:text-secondary-700 transition-colors">
+                    Quality
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                    Delivering excellence through standardized methodologies and
+                    rigorous quality control
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Accountability */}
+            <AnimatedSection animation="fade-up" delay={400}>
+              <div className="group relative bg-gradient-to-br from-white to-primary-50 p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-secondary-400 overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-secondary-100 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500 opacity-50"></div>
+
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-br from-secondary-400 to-secondary-600 rounded-full flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                    <FaBalanceScale className="text-primary text-2xl" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-heading font-bold mb-3 text-gray-900 group-hover:text-secondary-700 transition-colors">
+                    Accountability
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                    Taking full ownership of deliverables and outcomes in every
+                    client engagement
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Professional Ethics */}
+            <AnimatedSection animation="fade-up" delay={500}>
+              <div className="group relative bg-gradient-to-br from-white to-primary-50 p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-secondary-400 overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-secondary-100 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500 opacity-50"></div>
+
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-br from-secondary-400 to-secondary-600 rounded-full flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                    <FaGavel className="text-primary text-2xl" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-heading font-bold mb-3 text-gray-900 group-hover:text-secondary-700 transition-colors">
+                    Professional Ethics
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                    Adhering to the highest standards of professional conduct
+                    and regulatory compliance
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Knowledge Sharing */}
+            <AnimatedSection animation="fade-up" delay={600}>
+              <div className="group relative bg-gradient-to-br from-white to-primary-50 p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-secondary-400 overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-secondary-100 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500 opacity-50"></div>
+
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-br from-secondary-400 to-secondary-600 rounded-full flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                    <FaBookOpen className="text-primary text-2xl" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-heading font-bold mb-3 text-gray-900 group-hover:text-secondary-700 transition-colors">
+                    Knowledge Sharing
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                    Empowering clients through insights, training, and
+                    collaborative learning approaches
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Continuous Improvement */}
+            <AnimatedSection animation="fade-up" delay={700}>
+              <div className="group relative bg-gradient-to-br from-white to-primary-50 p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-secondary-400 overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-secondary-100 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500 opacity-50"></div>
+
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-br from-secondary-400 to-secondary-600 rounded-full flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                    <FaChartLine className="text-primary text-2xl" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-heading font-bold mb-3 text-gray-900 group-hover:text-secondary-700 transition-colors">
+                    Continuous Improvement
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                    Constantly evolving our practices through innovation,
+                    training, and industry best practices
+                  </p>
+                </div>
               </div>
             </AnimatedSection>
           </div>
@@ -296,9 +465,7 @@ const LandingPage = () => {
                 </h3>
                 <p className="text-lg leading-relaxed">
                   To set the benchmark in professional excellence through
-                  knowledge, transparency, and innovation, becoming the trusted
-                  partner for businesses navigating complex financial
-                  landscapes.
+                  knowledge, transparency, and innovation.
                 </p>
               </div>
             </AnimatedSection>
@@ -326,8 +493,7 @@ const LandingPage = () => {
                 <p className="text-lg text-gray-700 leading-relaxed">
                   To deliver quality-driven, compliant, and strategic solutions
                   to clients through professional expertise and
-                  technology-enabled execution, ensuring financial discipline
-                  and long-term success.
+                  technology-enabled execution.
                 </p>
               </div>
             </AnimatedSection>
@@ -376,7 +542,7 @@ const TrustCounter = ({ value, suffix, label, type }) => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (counterRef.current) {

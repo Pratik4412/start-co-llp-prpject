@@ -1,6 +1,11 @@
-import one from "../assets/landingpage/1.jpeg";
-import two from "../assets/landingpage/2.jpeg";
-import three from "../assets/landingpage/3.jpeg";
+import one from "../assets/team_images/Aksshay.jpeg";
+import two from "../assets/team_images/Bijal.png";
+import three from "../assets/team_images/Haresh.png";
+import four from "../assets/team_images/Pratik.jpeg";
+import five from "../assets/team_images/Rachna.png";
+import six from "../assets/team_images/Sachin.png";
+import seven from "../assets/team_images/Tulsyan.jpeg";
+import eghit from "../assets/team_images/Vijyatta.jpeg";
 
 export const menuBar = [
   {
@@ -52,22 +57,18 @@ export const aboutSec = [
 
 export const ourStorySide = [
   {
-    icon: "🎯",
     title: "Client-Centric",
     desc: "Your success is our mission",
   },
   {
-    icon: "🔒",
     title: "Integrity First",
     desc: "Ethics in every engagement",
   },
   {
-    icon: "💡",
     title: "Innovation",
     desc: "Technology-enabled solutions",
   },
   {
-    icon: "🤝",
     title: "Partnership",
     desc: "Long-term relationships",
   },
@@ -76,32 +77,48 @@ export const ourStorySide = [
 export const ourTeam = [
   {
     img: one,
-    name: "Rahul Dhere",
+    name: "Akshay",
     position: "Full Stack Developer",
   },
   {
     img: two,
-    name: "Pratik Dhere",
-    position: "Software Developer",
+    name: "CA. Bijal Shah (FCA, ACS)",
+    position:
+      "Dual-qualified professional with experience in audit, tax, and company law compliance.",
   },
   {
     img: three,
-    name: "Santosh Dhere",
-    position: "UIUX Designer",
+    name: "CA. Haresh Valiya (FCA)",
+    position:
+      "Expert in concurrent and statutory audits of major banks and financial institutions.",
   },
   {
-    img: one,
-    name: "Kunal Dhere",
+    img: four,
+    name: "Pratik",
     position: "Pythone developer",
   },
   {
-    img: two,
-    name: "Shivtej Sonwane",
-    position: "AEM Manager",
+    img: five,
+    name: "CA. Rachna Agarwal (ACA)",
+    position:
+      "Skilled in internal controls, compliance audits, and financial consulting.",
   },
   {
-    img: three,
-    name: "Tushar Gaikwad",
-    position: "SEO team lead",
+    img: six,
+    name: "CA. Sachin Khandelwal (ACA)",
+    position:
+      "Experienced in direct & indirect taxation, audit, and financial compliance.",
+  },
+  {
+    img: seven,
+    name: "CA. Murarilal Tulsyan (FCA)",
+    position:
+      "Expert in Direct and International Taxation with extensive industry exposure.",
+  },
+  {
+    img: eghit,
+    name: "CA. Vijyatta Jaiswal (FCA)",
+    position:
+      "Rank holder and specialist in audit, assurance, and taxation advisory.",
   },
 ];

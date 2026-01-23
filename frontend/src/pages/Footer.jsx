@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
 import AnimatedSection from "../components/AnimatedSection";
+import ca_logo from "../assets/ca-logo.svg";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -169,10 +170,10 @@ const Footer = () => {
                 {/* Certification Badge */}
                 <div className="inline-block bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-lg">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-primary-dark rounded-lg flex items-center justify-center">
-                      <span className="text-2xl font-bold text-primary-light">
-                        CA
-                      </span>
+                    <div className="w-20 h-20 bg-white rounded-lg flex items-center justify-center">
+                      {/* <span className="text-2xl font-bold text-primary-light "> */}
+                      <img src={ca_logo} alt="" className="w-full h-full" />
+                      {/* </span> */}
                     </div>
                     <div className="text-primary-light">
                       <p className="text-xs font-semibold">Category I</p>

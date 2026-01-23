@@ -1,27 +1,3 @@
-// import React from "react";
-// import { Link } from "react-router-dom";
-// import { menuBar } from "../data/text";
-// import logo from "../assets/logo-preview.png";
-// const Header = () => {
-//   return (
-//     <header className="px-5 md:px-10 lg:px-20 py-4 md:py-6 fixed top-0 left-0 z-50 w-full justify-center flex items-center">
-//       <div className="container mx-auto flex items-center justify-between bg-white rounded-md py-2 px-6 w-full">
-//         <div>
-//           <img src={logo} alt="logo" className="w-full h-14" />
-//         </div>
-//         <div className="flex items-center gap-6">
-//           {menuBar.map((item, i) => (
-//             <div key={i}>
-//               <Link to={item.path}>{item.name}</Link>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </header>
-//   );
-// };
-
-// export default Header;
 
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";

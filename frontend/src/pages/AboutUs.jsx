@@ -3,8 +3,20 @@ import landing from "../assets/js9gXJrzSkr8Mm4Lc5TMGT8U.avif";
 import AnimatedSection from "../components/AnimatedSection";
 import { aboutSec, ourStorySide } from "../data/text";
 import OurTeam from "../components/OurTeam";
-
+import {
+  FaBullseye,
+  FaShieldAlt,
+  FaLightbulb,
+  FaHandshake,
+} from "react-icons/fa";
 const AboutUs = () => {
+  // Map icons to components
+  const iconComponents = {
+    "Client-Centric": FaBullseye,
+    "Integrity First": FaShieldAlt,
+    Innovation: FaLightbulb,
+    Partnership: FaHandshake,
+  };
   const ImpactCard = ({ number, title, description, index }) => {
     const [count, setCount] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
@@ -21,7 +33,7 @@ const AboutUs = () => {
             setIsVisible(true);
           }
         },
-        { threshold: 0.1 }
+        { threshold: 0.1 },
       );
 
       if (counterRef.current) {
@@ -88,7 +100,6 @@ const AboutUs = () => {
       </div>
     );
   };
-
   // Feature Item Component
   const FeatureItem = ({ number, title, description }) => {
     return (
@@ -382,21 +393,30 @@ const AboutUs = () => {
           </AnimatedSection>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {ourStorySide.map((value, i) => (
-              <AnimatedSection
-                key={i}
-                animation="fade-up"
-                delay={200 + i * 100}
-              >
-                <div className="bg-light-bg p-6 rounded-xl text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                  <div className="text-5xl mb-4">{value.icon}</div>
-                  <h3 className="text-xl font-heading font-bold mb-2">
-                    {value.title}
-                  </h3>
-                  <p className="text-gray-600">{value.desc}</p>
-                </div>
-              </AnimatedSection>
-            ))}
+            {ourStorySide.map((value, i) => {
+              const IconComponent = iconComponents[value.title];
+              return (
+                <AnimatedSection
+                  key={i}
+                  animation="fade-up"
+                  delay={200 + i * 100}
+                >
+                  <div className="group bg-light-bg p-8 rounded-xl text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-secondary-400">
+                    <div className="mb-6 flex justify-center">
+                      <div className="w-20 h-20 bg-gradient-to-br from-secondary-300 to-secondary-500 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
+                        <IconComponent className="text-4xl text-primary" />
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-heading font-bold mb-3 text-gray-900 group-hover:text-primary-dark transition-colors">
+                      {value.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {value.desc}
+                    </p>
+                  </div>
+                </AnimatedSection>
+              );
+            })}
           </div>
         </div>
       </section>
