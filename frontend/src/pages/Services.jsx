@@ -34,7 +34,7 @@ import Portfolio from "../assets/servicesPage/Portfolio Advisory and Investment 
 import Company from "../assets/servicesPage/Company Law & Secretarial Compliance.webp";
 import International from "../assets/servicesPage/International Business & NRI Services.webp";
 import AnimatedSection from "../components/AnimatedSection";
-import landing from "../assets/js9gXJrzSkr8Mm4Lc5TMGT8U.avif";
+import landing from "../assets/men.png";
 import { Link } from "react-router-dom";
 const Services = () => {
   const [activeService, setActiveService] = useState("audit");

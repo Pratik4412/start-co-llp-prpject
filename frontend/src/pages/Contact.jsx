@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import landing from "../assets/js9gXJrzSkr8Mm4Lc5TMGT8U.avif";
+import landing from "../assets/men.png";
 import AnimatedSection from "../components/AnimatedSection";
 
 const Contact = () => {
