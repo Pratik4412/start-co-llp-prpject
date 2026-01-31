@@ -73,8 +73,8 @@ const Contact = () => {
         </svg>
       ),
       title: "Phone",
-      details: ["+91 98902 14990", "022-4264 0413", "022-2877 7391"],
-      link: "tel:+919890214990",
+      details: ["+91 9819082799", "022-42640413", "022-42640414"],
+      link: "tel:+919819082799",
     },
     {
       icon: (
@@ -93,8 +93,10 @@ const Contact = () => {
         </svg>
       ),
       title: "Email",
-      details: ["capmc22@gmail.com", "haresh.valiya4@gmail.com"],
-      link: "mailto:capmc22@gmail.com",
+      //
+      //
+      details: ["info@starsca.co.in", "admin@starsca.co.in"],
+      link: "mailto:info@starsca.co.in",
     },
     {
       icon: (
@@ -119,12 +121,13 @@ const Contact = () => {
         </svg>
       ),
       title: "Address",
+
       details: [
-        "306, Linkway Estate Premises",
-        "Above Greens Restaurant, New Link Road",
-        "Malad (West), Mumbai - 400064",
+        "1201-A, Lotus Arc One, New Link Road,",
+        "Opp. Tanishq Showroom, Andheri West,",
+        "Mumbai- 400013",
       ],
-      link: "https://maps.google.com/?q=306+Linkway+Estate+Premises+Malad+West+Mumbai",
+      link: "https://maps.app.goo.gl/J4PwDYf3UaMqBkbe7",
     },
     {
       icon: (
@@ -143,11 +146,7 @@ const Contact = () => {
         </svg>
       ),
       title: "Business Hours",
-      details: [
-        "Monday - Friday: 9:00 AM - 6:00 PM",
-        "Saturday: 10:00 AM - 2:00 PM",
-        "Sunday: Closed",
-      ],
+      details: ["Monday - Friday: 10:00 AM - 6:30 PM", "Sunday: Closed"],
       link: null,
     },
   ];
@@ -352,7 +351,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-dark focus:border-transparent transition-all"
-                        placeholder="John Doe"
+                        placeholder="Enter your name"
                       />
                     </div>
 
@@ -371,7 +370,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-dark focus:border-transparent transition-all"
-                        placeholder="john@example.com"
+                        placeholder="Enter your email"
                       />
                     </div>
                   </div>
@@ -392,7 +391,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-dark focus:border-transparent transition-all"
-                        placeholder="+91 98765 43210"
+                        placeholder="Enter your phone number"
                       />
                     </div>
 
@@ -410,7 +409,7 @@ const Contact = () => {
                         value={formData.company}
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-dark focus:border-transparent transition-all"
-                        placeholder="Your Company"
+                        placeholder="Enter Your Company name"
                       />
                     </div>
                   </div>
@@ -523,7 +522,7 @@ const Contact = () => {
                 <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
                   <div className="h-80 bg-gray-200">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.8826444709866!2d72.83682!3d19.1865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDExJzExLjQiTiA3MsKwNTAnMTIuNiJF!5e0!3m2!1sen!2sin!4v1234567890"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4559.488725246986!2d72.82988287587733!3d19.13798075002255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b70061e2b64b%3A0x88fddfe7fd8c10a8!2sArcOne%20by%20Lotus%20Developers!5e1!3m2!1sen!2sin!4v1769759203906!5m2!1sen!2sin"
                       width="100%"
                       height="100%"
                       style={{ border: 0 }}
@@ -538,11 +537,11 @@ const Contact = () => {
                       Visit Our Office
                     </h3>
                     <p className="text-gray-600 mb-4">
-                      306, Linkway Estate Premises, Above Greens Restaurant, New
-                      Link Road, Malad (West), Mumbai - 400064
+                      1201-A, Lotus Arc One, New Link Road, Opp. Tanishq
+                      Showroom, Andheri West, Mumbai- 400013,
                     </p>
                     <a
-                      href="https://maps.google.com/?q=306+Linkway+Estate+Premises+Malad+West+Mumbai"
+                      href="https://maps.app.goo.gl/J4PwDYf3UaMqBkbe7"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-primary-dark font-medium hover:underline"
@@ -574,7 +573,7 @@ const Contact = () => {
                   </h3>
                   <div className="space-y-4">
                     <a
-                      href="tel:+919890214990"
+                      href="tel:+919819082799"
                       className="flex items-center gap-4 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all group"
                     >
                       <div className="w-10 h-10 bg-primary-light rounded-full flex items-center justify-center flex-shrink-0">
@@ -594,12 +593,12 @@ const Contact = () => {
                       </div>
                       <div>
                         <p className="text-sm text-white/80">Call us now</p>
-                        <p className="font-semibold">+91 98902 14990</p>
+                        <p className="font-semibold">+91 9819082799</p>
                       </div>
                     </a>
 
                     <a
-                      href="mailto:capmc22@gmail.com"
+                      href="mailto:info@starsca.co.in"
                       className="flex items-center gap-4 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all group"
                     >
                       <div className="w-10 h-10 bg-primary-light rounded-full flex items-center justify-center flex-shrink-0">
@@ -619,7 +618,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <p className="text-sm text-white/80">Email us</p>
-                        <p className="font-semibold">capmc22@gmail.com</p>
+                        <p className="font-semibold">info@starsca.co.in</p>
                       </div>
                     </a>
                   </div>
@@ -699,13 +698,13 @@ const Contact = () => {
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
                 Prefer to Talk Directly?
               </h2>
-              <p className="text-lg text-white/90 mb-8">
+              <p className="text-lg text-white mb-8">
                 Our team is available during business hours to answer your
                 questions and discuss how we can help your business thrive.
               </p>
               <div className="flex gap-4 justify-center flex-wrap">
                 <a
-                  href="tel:+919890214990"
+                  href="tel:+919819082799"
                   className="py-4 px-8 bg-white text-primary-dark text-base font-heading rounded-full hover:bg-primary-light transition-all shadow-xl inline-flex items-center gap-2"
                 >
                   <svg
@@ -719,11 +718,11 @@ const Contact = () => {
                       strokeLinejoin="round"
                       strokeWidth={2}
                       d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
+                />
                   </svg>
                   Call Now
                 </a>
-                <a
+                {/* <a
                   href="https://www.pmcllp.com"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -743,7 +742,7 @@ const Contact = () => {
                       d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                     />
                   </svg>
-                </a>
+                </a> */}
               </div>
             </div>
           </AnimatedSection>

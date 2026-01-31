@@ -9,6 +9,7 @@ import {
   FaLightbulb,
   FaHandshake,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const AboutUs = () => {
   // Map icons to components
   const iconComponents = {
@@ -94,7 +95,9 @@ const AboutUs = () => {
             <h3 className="text-xl font-heading font-bold text-gray-900">
               {title}
             </h3>
-            <p className="text-gray-600 leading-relaxed">{description}</p>
+            <p className="text-gray-600 leading-relaxed font-body">
+              {description}
+            </p>
           </div>
         </div>
       </div>
@@ -113,7 +116,9 @@ const AboutUs = () => {
           <h3 className="text-xl md:text-2xl font-heading font-bold text-gray-900 mb-2 group-hover:text-primary-dark transition-colors">
             {title}
           </h3>
-          <p className="text-gray-600 leading-relaxed">{description}</p>
+          <p className="text-gray-600 leading-relaxed font-body">
+            {description}
+          </p>
         </div>
       </div>
     );
@@ -176,7 +181,10 @@ const AboutUs = () => {
               </div>
 
               <AnimatedSection animation="fade-left" delay={400}>
-                <button className="py-3 px-8 bg-primary-dark text-white text-base font-heading rounded-full flex items-center gap-2 hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl group whitespace-nowrap">
+                <Link
+                  to={"/services"}
+                  className="py-3 px-8 bg-primary-dark text-white text-base font-heading rounded-full flex items-center gap-2 hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl group whitespace-nowrap"
+                >
                   Explore Our Process
                   <svg
                     className="w-5 h-5 group-hover:translate-x-1 transition-transform"
@@ -191,7 +199,7 @@ const AboutUs = () => {
                       d="M17 8l4 4m0 0l-4 4m4-4H3"
                     />
                   </svg>
-                </button>
+                </Link>
               </AnimatedSection>
             </div>
 
@@ -253,10 +261,12 @@ const AboutUs = () => {
                         </svg>
                       </div>
                       <div>
-                        <h4 className="text-2xl font-bold text-white">
+                        <h4 className="text-2xl font-bold text-white font-heading">
                           Category I
                         </h4>
-                        <p className="text-gray-100">RBI Empanelled Firm</p>
+                        <p className="text-gray-100 font-body">
+                          RBI Empanelled Firm
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -317,26 +327,10 @@ const AboutUs = () => {
               {/* Bottom CTA */}
               <AnimatedSection animation="fade-up" delay={800}>
                 <div className="bg-light-bg rounded-xl p-6 mt-4">
-                  <p className="text-gray-700 text-lg mb-4">
+                  <p className="text-gray-700 text-lg mb-4 font-body">
                     We provide tailored financial solutions to help your
                     business grow with confidence
                   </p>
-                  <button className="py-3 px-8 bg-primary-dark text-white text-base font-heading rounded-full flex items-center gap-2 hover:bg-opacity-90 transition-all group">
-                    Learn More About Us
-                    <svg
-                      className="w-5 h-5 group-hover:translate-x-1 transition-transform"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
-                  </button>
                 </div>
               </AnimatedSection>
             </div>
@@ -352,7 +346,7 @@ const AboutUs = () => {
               <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">
                 Our Story
               </h2>
-              <div className="space-y-4 text-white text-lg leading-relaxed">
+              <div className="space-y-4 text-white text-lg leading-relaxed font-body">
                 <p>
                   Founded in 2013, S T A R S & Co. LLP has evolved from a vision
                   to set new benchmarks in professional excellence to becoming a
@@ -386,7 +380,7 @@ const AboutUs = () => {
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary-dark mb-4">
                 What Drives Us
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto font-body">
                 Our core principles guide every decision and interaction
               </p>
             </div>
@@ -410,7 +404,7 @@ const AboutUs = () => {
                     <h3 className="text-xl font-heading font-bold mb-3 text-gray-900 group-hover:text-primary-dark transition-colors">
                       {value.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-gray-600 leading-relaxed font-body">
                       {value.desc}
                     </p>
                   </div>

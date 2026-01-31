@@ -24,9 +24,18 @@
 // export default Services;
 
 import React, { useState } from "react";
-import landing from "../assets/js9gXJrzSkr8Mm4Lc5TMGT8U.avif";
+import Audit from "../assets/servicesPage/Audit & Assurance.webp";
+import Taxation from "../assets/servicesPage/Taxation Services.webp";
+import Bank from "../assets/servicesPage/bank audit.webp";
+import Corporate from "../assets/servicesPage/corporate-finance.webp";
+import Business from "../assets/servicesPage/Business Restructuring & Valuations.webp";
+import FEMA from "../assets/servicesPage/FEMA, RBI & FOREX Advisory.webp";
+import Portfolio from "../assets/servicesPage/Portfolio Advisory and Investment Planning.webp";
+import Company from "../assets/servicesPage/Company Law & Secretarial Compliance.webp";
+import International from "../assets/servicesPage/International Business & NRI Services.webp";
 import AnimatedSection from "../components/AnimatedSection";
-
+import landing from "../assets/js9gXJrzSkr8Mm4Lc5TMGT8U.avif";
+import { Link } from "react-router-dom";
 const Services = () => {
   const [activeService, setActiveService] = useState("audit");
 
@@ -43,7 +52,7 @@ const Services = () => {
         "Forensic Audits",
         "System Audits",
       ],
-      image: landing,
+      image: Audit,
     },
     taxation: {
       title: "Taxation Services",
@@ -57,7 +66,7 @@ const Services = () => {
         "GST Advisory & Compliance",
         "Indirect Tax Consulting",
       ],
-      image: landing,
+      image: Taxation,
     },
     bankAudits: {
       title: "Bank Audits",
@@ -73,7 +82,7 @@ const Services = () => {
         "KYC Audits",
         "EDP Audits",
       ],
-      image: landing,
+      image: Bank,
     },
     corporateFinance: {
       title: "Corporate Finance & Project Funding",
@@ -86,7 +95,7 @@ const Services = () => {
         "Private Equity Advisory",
         "Working Capital Management",
       ],
-      image: landing,
+      image: Corporate,
     },
     businessRestructuring: {
       title: "Business Restructuring & Valuations",
@@ -99,7 +108,7 @@ const Services = () => {
         "Due Diligence",
         "Fairness Opinions",
       ],
-      image: landing,
+      image: Business,
     },
     fema: {
       title: "FEMA, RBI & FOREX Advisory",
@@ -112,7 +121,7 @@ const Services = () => {
         "FEMA Certifications",
         "Cross-border Transactions",
       ],
-      image: landing,
+      image: FEMA,
     },
     portfolio: {
       title: "Portfolio Advisory and Investment Planning",
@@ -125,7 +134,7 @@ const Services = () => {
         "Wealth Management",
         "Financial Goal Setting",
       ],
-      image: landing,
+      image: Portfolio,
     },
     companyLaw: {
       title: "Company Law & Secretarial Compliance",
@@ -138,7 +147,7 @@ const Services = () => {
         "ROC Filings",
         "Corporate Governance",
       ],
-      image: landing,
+      image: Company,
     },
     international: {
       title: "International Business & NRI Services",
@@ -151,7 +160,7 @@ const Services = () => {
         "Repatriation Services",
         "DTAA Benefits",
       ],
-      image: landing,
+      image: International,
     },
   };
 
@@ -227,46 +236,46 @@ const Services = () => {
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
             {/* Left Sidebar - Sticky Popular Services */}
             <div className="lg:w-4/12 lg:sticky lg:top-32 self-start h-fit w-full">
-              <AnimatedSection animation="fade-right" delay={200}>
-                <div className="bg-gradient-to-br from-primary-dark to-gray-900 rounded-2xl p-8 shadow-2xl">
-                  <h3 className="text-2xl md:text-3xl font-heading font-bold text-white mb-6">
-                    Popular services
-                  </h3>
+              {/* <AnimatedSection animation="fade-right" delay={200}> */}
+              <div className="bg-gradient-to-br from-primary-dark to-gray-900 rounded-2xl p-8 shadow-2xl">
+                <h3 className="text-2xl md:text-3xl font-heading font-bold text-white mb-6">
+                  Popular services
+                </h3>
 
-                  <nav className="space-y-3">
-                    {Object.entries(services).map(([key, service]) => (
-                      <button
-                        key={key}
-                        onClick={() => setActiveService(key)}
-                        className={`w-full text-left px-6 py-4 rounded-xl font-medium transition-all duration-300 flex items-center justify-between group ${
+                <nav className="space-y-3">
+                  {Object.entries(services).map(([key, service]) => (
+                    <button
+                      key={key}
+                      onClick={() => setActiveService(key)}
+                      className={`w-full text-left px-6 py-4 rounded-xl font-medium transition-all duration-300 flex items-center justify-between group ${
+                        activeService === key
+                          ? "bg-primary-light text-primary-dark"
+                          : "bg-white/10 text-white hover:bg-white/20"
+                      }`}
+                    >
+                      <span className="text-base">{service.title}</span>
+                      <svg
+                        className={`w-5 h-5 transition-transform duration-300 ${
                           activeService === key
-                            ? "bg-primary-light text-primary-dark"
-                            : "bg-white/10 text-white hover:bg-white/20"
+                            ? "rotate-45"
+                            : "group-hover:translate-x-1"
                         }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                       >
-                        <span className="text-base">{service.title}</span>
-                        <svg
-                          className={`w-5 h-5 transition-transform duration-300 ${
-                            activeService === key
-                              ? "rotate-45"
-                              : "group-hover:translate-x-1"
-                          }`}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M17 8l4 4m0 0l-4 4m4-4H3"
-                          />
-                        </svg>
-                      </button>
-                    ))}
-                  </nav>
-                </div>
-              </AnimatedSection>
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </button>
+                  ))}
+                </nav>
+              </div>
+              {/* </AnimatedSection> */}
             </div>
 
             {/* Right Content - Service Details */}
@@ -314,8 +323,11 @@ const Services = () => {
                     </div>
 
                     <div className="mt-8 flex gap-4 flex-wrap">
-                      <button className="py-3 px-8 bg-primary-dark text-white text-base font-heading rounded-full hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl flex items-center gap-2 group">
-                        Get Started
+                      <Link
+                        to={"/contact"}
+                        className="py-3 px-8 bg-primary-dark text-white text-base font-heading rounded-full hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl flex items-center gap-2 group"
+                      >
+                        Get In Tech
                         <svg
                           className="w-5 h-5 group-hover:translate-x-1 transition-transform"
                           fill="none"
@@ -329,10 +341,10 @@ const Services = () => {
                             d="M17 8l4 4m0 0l-4 4m4-4H3"
                           />
                         </svg>
-                      </button>
-                      <button className="py-3 px-8 border-2 border-primary-dark text-primary-dark text-base font-heading rounded-full hover:bg-primary-dark hover:text-white transition-all">
+                      </Link>
+                      {/* <button className="py-3 px-8 border-2 border-primary-dark text-primary-dark text-base font-heading rounded-full hover:bg-primary-dark hover:text-white transition-all">
                         Learn More
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 </div>
@@ -378,17 +390,20 @@ const Services = () => {
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
                 Ready to Transform Your Business?
               </h2>
-              <p className="text-lg text-white/90 mb-8">
+              <p className="text-lg text-white mb-8">
                 Let our expert team help you navigate complex financial
                 challenges with precision and strategic insight.
               </p>
               <div className="flex gap-4 justify-center flex-wrap">
-                <button className="py-4 px-8 bg-white text-primary-dark text-base font-heading rounded-full hover:bg-primary-light transition-all shadow-xl">
-                  Schedule Consultation
-                </button>
-                <button className="py-4 px-8 border-2 border-white text-white text-base font-heading rounded-full hover:bg-white hover:text-primary-dark transition-all">
+                {/* <button className="py-4 px-8 bg-white text-primary-dark text-base font-heading rounded-full hover:bg-primary-light transition-all shadow-xl">
+                  Get In Tech
+                </button> */}
+                <Link
+                  to={"/contact"}
+                  className="py-4 px-8 border-2 border-white text-white text-base font-heading rounded-full hover:bg-white hover:text-primary-dark transition-all"
+                >
                   Contact Us
-                </button>
+                </Link>
               </div>
             </div>
           </AnimatedSection>
@@ -435,7 +450,7 @@ const SpecializedServiceCard = ({ title, description, index }) => {
       >
         <div className="px-6 pb-5 border-t border-gray-100">
           <p className="text-gray-700 leading-relaxed pt-4">{description}</p>
-          <button className="mt-4 text-primary-dark font-medium hover:underline flex items-center gap-2 group">
+          {/* <button className="mt-4 text-primary-dark font-medium hover:underline flex items-center gap-2 group">
             Learn More
             <svg
               className="w-4 h-4 group-hover:translate-x-1 transition-transform"
@@ -450,7 +465,7 @@ const SpecializedServiceCard = ({ title, description, index }) => {
                 d="M9 5l7 7-7 7"
               />
             </svg>
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

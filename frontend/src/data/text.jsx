@@ -4,7 +4,7 @@ import three from "../assets/team_images/Haresh.png";
 import four from "../assets/team_images/Pratik.jpeg";
 import five from "../assets/team_images/Rachna.png";
 import six from "../assets/team_images/Sachin.png";
-import seven from "../assets/team_images/Tulsyan.jpeg";
+import seven from "../assets/team_images/Tulsyan.png";
 import eghit from "../assets/team_images/Vijyatta.jpeg";
 
 export const menuBar = [
@@ -77,48 +77,58 @@ export const ourStorySide = [
 export const ourTeam = [
   {
     img: one,
-    name: "Akshay",
-    position: "Full Stack Developer",
+    name: "CA. Aksshay Gomase",
+    edu: "FCA, B.Com, FAFD, Ind-AS",
+    position:
+      "Chartered Accountant with 9+ years of professional experience, specializing in due diligence, income tax, GST, and regulatory compliance. Experienced in process & management audits, compliance assurance, and bank branch and concurrent audits.",
   },
   {
     img: two,
-    name: "CA. Bijal Shah (FCA, ACS)",
+    name: "CA. Bijal Shah",
+    edu: "B.Com, FCA, CS",
     position:
-      "Dual-qualified professional with experience in audit, tax, and company law compliance.",
+      "Chartered Accountant and Company Secretary with 8 years of post-qualification experience in direct & indirect taxation, audit & assurance, and system audits. Has handled internal control reviews and consultancy assignments for service and infrastructure sector clients.",
   },
   {
     img: three,
-    name: "CA. Haresh Valiya (FCA)",
+    name: "CA. Haresh Valiya",
+    edu: "B.Com, FCA",
     position:
-      "Expert in concurrent and statutory audits of major banks and financial institutions.",
+      "A specialist in banking and forensic audits with extensive experience in concurrent, internal, statutory, revenue, CBS’ migration, and stock audits. ICAI-certified in Concurrent Audit of Banks, with hands-on exposure across multiple banking engagements.",
   },
   {
     img: four,
-    name: "Pratik",
-    position: "Pythone developer",
+    name: "CA. Pratik P. Kambli",
+    edu: "FCA, B.Com, Ind-AS",
+    position:
+      "Chartered Accountant with 14+ years of professional experience in corporate audits, internal audits, taxation, and advisory services. Well-versed in handling Income Tax, GST assessments, and complex accounting matters.",
   },
   {
     img: five,
-    name: "CA. Rachna Agarwal (ACA)",
+    name: "CA. Rachna Agarwal",
+    edu: "B.Com, FCA",
     position:
-      "Skilled in internal controls, compliance audits, and financial consulting.",
+      "A Chartered Accountant with over 19 years of professional experience in audit & assurance, compliance, and corporate secretarial services. She has handled internal control reviews, system audits, and consultancy assignments across banking, IT, infrastructure, export, and service sectors.",
   },
   {
     img: six,
-    name: "CA. Sachin Khandelwal (ACA)",
+    name: "CA. Sachin Khandelwal",
+    edu: "B.Com, ACA",
     position:
-      "Experienced in direct & indirect taxation, audit, and financial compliance.",
+      "Qualified Chartered Accountant with experience in audit, taxation, system audits, and compliance services across service and infrastructure sectors. Has handled statutory audits and representation matters.",
   },
   {
     img: seven,
-    name: "CA. Murarilal Tulsyan (FCA)",
+    name: "CA. Murarilal Tulsyan",
+    edu: "B.Com, FCA",
     position:
-      "Expert in Direct and International Taxation with extensive industry exposure.",
+      "A Chartered Accountant with over 48 years of post-qualification experience, including significant tenure with A.F. Ferguson & Co. in their taxation division, specialising in Indian and International Taxation, advisory, and financial performance analysis.",
   },
   {
     img: eghit,
-    name: "CA. Vijyatta Jaiswal (FCA)",
+    name: "CA. Vijyatta Jaiswal",
+    edu: "B.Com (Hons), FCA",
     position:
-      "Rank holder and specialist in audit, assurance, and taxation advisory.",
+      "A rank holder at all levels of the CA examinations and recipient of the prestigious Madan Memorial Award. Practicing since 1998, she has extensive experience in direct and indirect taxation, statutory audits, and client advisory services.",
   },
 ];

@@ -58,6 +58,7 @@ import React, { useState, useEffect, useRef } from "react";
 import map from "../../assets/landingpage/map.avif";
 import AnimatedSection from "../AnimatedSection";
 import { client } from "../../data/text";
+import { Link } from "react-router-dom";
 
 const MapValue = () => {
   return (
@@ -169,7 +170,7 @@ const MapValue = () => {
                     <h4 className="font-semibold text-gray-900 mb-1">
                       RBI & CAG Empanelled
                     </h4>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-gray-600 font-body">
                       Category I firm with proven credibility
                     </p>
                   </div>
@@ -195,7 +196,7 @@ const MapValue = () => {
                     <h4 className="font-semibold text-gray-900 mb-1">
                       Fast & Reliable
                     </h4>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-gray-600 font-body">
                       Technology-enabled execution
                     </p>
                   </div>
@@ -205,7 +206,10 @@ const MapValue = () => {
 
             {/* CTA Button */}
             <AnimatedSection animation="fade-up" delay={700}>
-              <button className=" py-3 px-8 bg-primary-dark text-white text-base font-heading rounded-full flex items-center gap-2 hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl group">
+              <Link
+                to={"/services"}
+                className="w-fit py-3 px-8 bg-primary-dark text-white text-base font-heading rounded-full flex items-center gap-2 hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl group"
+              >
                 Explore Our Global Services
                 <svg
                   className="w-5 h-5 group-hover:translate-x-1 transition-transform"
@@ -220,7 +224,7 @@ const MapValue = () => {
                     d="M17 8l4 4m0 0l-4 4m4-4H3"
                   />
                 </svg>
-              </button>
+              </Link>
             </AnimatedSection>
           </div>
         </div>
@@ -242,7 +246,7 @@ const StatCounter = ({ number, label, delay }) => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (counterRef.current) {

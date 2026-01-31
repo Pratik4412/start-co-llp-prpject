@@ -10,6 +10,7 @@ import {
   FaBookOpen,
   FaChartLine,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const LandingPage = () => {
   const stats = [
     {
@@ -35,7 +36,7 @@ const LandingPage = () => {
         <div className="w-full h-full bg-[linear-gradient(100deg,rgba(0,0,0,0.7)_0%,rgba(0,0,0,0.7)_33%,rgba(30,30,30,0.1)_53%)]">
           <div className="container mx-auto flex flex-col items-start gap-4 justify-end w-full h-full py-5 md:py-10 lg:py-20 px-5 md:px-10">
             <AnimatedSection animation="fade-up" delay={200}>
-              <h1 className="text-white text-3xl md:text-7xl font-bold">
+              <h1 className="text-white text-3xl md:text-7xl font-bold font-heading">
                 S T A R S & Co. LLP <br className="hidden md:block" />
                 <span className="text-primary-light">
                   Chartered Accountants
@@ -57,12 +58,18 @@ const LandingPage = () => {
 
             <AnimatedSection animation="fade-up" delay={500}>
               <div className="flex gap-4 flex-wrap">
-                <button className="border border-white py-3 px-8 transition-all duration-300 ease-in-out bg-transparent text-white text-base font-heading rounded-full hover:text-primary-dark hover:bg-white">
+                <Link
+                  to={"/services"}
+                  className="border border-white py-3 px-8 transition-all duration-300 ease-in-out bg-transparent text-white text-base font-inter rounded-full hover:text-primary-dark hover:bg-white"
+                >
                   Explore Our Services
-                </button>
-                <button className="py-3 px-8 transition-all duration-300 ease-in-out bg-primary-light text-primary-dark text-base font-heading rounded-full hover:bg-white">
-                  Schedule Consultation
-                </button>
+                </Link>
+                <Link
+                  to={"/contact"}
+                  className="py-3 px-8 transition-all duration-300 ease-in-out bg-primary-light text-primary-dark text-base font-heading rounded-full hover:bg-white"
+                >
+                  Get In Tech
+                </Link>
               </div>
             </AnimatedSection>
           </div>
@@ -119,24 +126,6 @@ const LandingPage = () => {
                 Regulatory Consulting, Corporate Finance, and Management
                 Advisory.
               </p>
-              {/* <p className="text-base md:text-lg text-gray-700 font-body leading-relaxed">
-                M/s. S T A R S & Co. LLP (Previously known as Prashant Mittal
-                and Co. LLP) is a multi-disciplinary professional firm providing
-                comprehensive financial and regulatory services, including Audit
-                & Assurance, US GAAP Restatement, Taxation, Foreign Exchange &
-                Regulatory Consulting, Corporate Finance, and Management
-                Advisory. Led by experienced partners and supported by a dynamic
-                team, the firm operates with an unwavering commitment to
-                quality, ethics, and professionalism.
-              </p>{" "}
-              <br />
-              <p className="text-base md:text-lg text-gray-700 font-body leading-relaxed">
-                Our operations are built on integrity, innovation, and
-                client-centricity. We are empanelled with various leading
-                nationalized and private sector banks and hold RBI, IBA, and CAG
-                empanelments, signifying our credibility and professional
-                capability in handling high-value assignments.
-              </p> */}
             </AnimatedSection>
           </div>
 
@@ -148,7 +137,10 @@ const LandingPage = () => {
                 professionalism. We are empanelled with leading nationalized and
                 private sector banks and hold RBI, IBA, and CAG empanelments.
               </p>
-              <button className="w-fit py-3 px-8 bg-primary-dark text-white text-base font-heading rounded-full flex items-center gap-2 hover:bg-opacity-90 transition-all">
+              <Link
+                to={"/about"}
+                className="w-fit py-3 px-8 bg-primary-dark text-white text-base font-heading rounded-full flex items-center gap-2 hover:bg-opacity-90 transition-all"
+              >
                 Learn More About Us
                 <svg
                   className="w-5 h-5"
@@ -163,87 +155,11 @@ const LandingPage = () => {
                     d="M9 5l7 7-7 7"
                   />
                 </svg>
-              </button>
+              </Link>
             </div>
           </AnimatedSection>
         </div>
       </section>
-
-      {/* <section className="bg-white py-12 md:py-20">
-        <div className="container mx-auto px-5 md:px-10 lg:px-20">
-          <AnimatedSection animation="fade-up" delay={200}>
-            <div className="text-center mb-10 md:mb-16">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary-dark mb-4">
-                Our Core Values
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Built on integrity, innovation, and client-centricity
-              </p>
-            </div>
-          </AnimatedSection>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <AnimatedSection animation="fade-up" delay={200}>
-              <div className="bg-light-bg p-6 rounded-lg hover:shadow-xl transition-all duration-300 border-t-4 border-primary-dark">
-                <div className="w-14 h-14 bg-primary-dark rounded-full flex items-center justify-center mb-4">
-                  <FaShieldAlt className="text-white text-2xl" />
-                </div>
-                <h3 className="text-xl font-heading font-bold mb-3">
-                  Integrity
-                </h3>
-                <p className="text-gray-600">
-                  Unwavering commitment to ethical practices and transparency in
-                  all engagements
-                </p>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection animation="fade-up" delay={300}>
-              <div className="bg-light-bg p-6 rounded-lg hover:shadow-xl transition-all duration-300 border-t-4 border-primary-dark">
-                <div className="w-14 h-14 bg-primary-dark rounded-full flex items-center justify-center mb-4">
-                  <FaAward className="text-white text-2xl" />
-                </div>
-                <h3 className="text-xl font-heading font-bold mb-3">Quality</h3>
-                <p className="text-gray-600">
-                  Delivering excellence through standardized methodologies and
-                  continuous improvement
-                </p>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection animation="fade-up" delay={400}>
-              <div className="bg-light-bg p-6 rounded-lg hover:shadow-xl transition-all duration-300 border-t-4 border-primary-dark">
-                <div className="w-14 h-14 bg-primary-dark rounded-full flex items-center justify-center mb-4">
-                  <FaHandshake className="text-white text-2xl" />
-                </div>
-                <h3 className="text-xl font-heading font-bold mb-3">
-                  Accountability
-                </h3>
-                <p className="text-gray-600">
-                  Taking full responsibility for results and client satisfaction
-                  in every project
-                </p>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection animation="fade-up" delay={500}>
-              <div className="bg-light-bg p-6 rounded-lg hover:shadow-xl transition-all duration-300 border-t-4 border-primary-dark">
-                <div className="w-14 h-14 bg-primary-dark rounded-full flex items-center justify-center mb-4">
-                  <FaChartLine className="text-white text-2xl" />
-                </div>
-                <h3 className="text-xl font-heading font-bold mb-3">
-                  Innovation
-                </h3>
-                <p className="text-gray-600">
-                  Leveraging technology and modern approaches for efficient
-                  service delivery
-                </p>
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section> */}
-
       {/* Core Values Section */}
       <section className="bg-white py-12 md:py-20">
         <div className="container mx-auto px-5 md:px-10 lg:px-20">
@@ -257,7 +173,7 @@ const LandingPage = () => {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-dark mb-4">
                 Our Core Values
               </h2>
-              <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed font-body">
                 The principles that guide our professional conduct and client
                 relationships
               </p>
@@ -277,7 +193,7 @@ const LandingPage = () => {
                   <h3 className="text-xl md:text-2xl font-heading font-bold mb-3 text-gray-900 group-hover:text-secondary-700 transition-colors">
                     Integrity
                   </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base font-body">
                     Unwavering commitment to ethical practices and transparency
                     in all professional engagements
                   </p>
@@ -297,7 +213,7 @@ const LandingPage = () => {
                   <h3 className="text-xl md:text-2xl font-heading font-bold mb-3 text-gray-900 group-hover:text-secondary-700 transition-colors">
                     Quality
                   </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base font-body">
                     Delivering excellence through standardized methodologies and
                     rigorous quality control
                   </p>
@@ -317,7 +233,7 @@ const LandingPage = () => {
                   <h3 className="text-xl md:text-2xl font-heading font-bold mb-3 text-gray-900 group-hover:text-secondary-700 transition-colors">
                     Accountability
                   </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base font-body">
                     Taking full ownership of deliverables and outcomes in every
                     client engagement
                   </p>
@@ -337,7 +253,7 @@ const LandingPage = () => {
                   <h3 className="text-xl md:text-2xl font-heading font-bold mb-3 text-gray-900 group-hover:text-secondary-700 transition-colors">
                     Professional Ethics
                   </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base font-body">
                     Adhering to the highest standards of professional conduct
                     and regulatory compliance
                   </p>
@@ -357,7 +273,7 @@ const LandingPage = () => {
                   <h3 className="text-xl md:text-2xl font-heading font-bold mb-3 text-gray-900 group-hover:text-secondary-700 transition-colors">
                     Knowledge Sharing
                   </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base font-body">
                     Empowering clients through insights, training, and
                     collaborative learning approaches
                   </p>
@@ -377,7 +293,7 @@ const LandingPage = () => {
                   <h3 className="text-xl md:text-2xl font-heading font-bold mb-3 text-gray-900 group-hover:text-secondary-700 transition-colors">
                     Continuous Improvement
                   </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base font-body">
                     Constantly evolving our practices through innovation,
                     training, and industry best practices
                   </p>
@@ -395,7 +311,7 @@ const LandingPage = () => {
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
                 Recognized & Empanelled
               </h2>
-              <p className="text-lg text-primary-light">
+              <p className="text-lg text-primary-light font-body">
                 Our credentials reflect our commitment to professional
                 excellence
               </p>
@@ -408,8 +324,8 @@ const LandingPage = () => {
                 <h4 className="text-xl font-bold mb-2 text-primary-light">
                   RBI Empanelled
                 </h4>
-                <p className="text-sm">Unique Code: 951335</p>
-                <p className="text-sm mt-1">Category I Firm</p>
+                <p className="text-sm font-body">Unique Code: 951335</p>
+                <p className="text-sm mt-1 font-body">Category I Firm</p>
               </div>
             </AnimatedSection>
 
@@ -418,7 +334,7 @@ const LandingPage = () => {
                 <h4 className="text-xl font-bold mb-2 text-primary-light">
                   CAG Empanelled
                 </h4>
-                <p className="text-sm">Empanelment No.: BO 1542</p>
+                <p className="text-sm font-body">Empanelment No.: BO 1542</p>
               </div>
             </AnimatedSection>
 
@@ -427,7 +343,9 @@ const LandingPage = () => {
                 <h4 className="text-xl font-bold mb-2 text-primary-light">
                   IBA Empanelled
                 </h4>
-                <p className="text-sm">For Exposure up to ₹50 Crores</p>
+                <p className="text-sm font-body">
+                  For Exposure up to ₹50 Crores
+                </p>
               </div>
             </AnimatedSection>
           </div>
@@ -463,7 +381,7 @@ const LandingPage = () => {
                 <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4">
                   Our Vision
                 </h3>
-                <p className="text-lg leading-relaxed">
+                <p className="text-lg leading-relaxed font-body">
                   To set the benchmark in professional excellence through
                   knowledge, transparency, and innovation.
                 </p>
@@ -490,7 +408,7 @@ const LandingPage = () => {
                 <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-primary-dark">
                   Our Mission
                 </h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="text-lg text-gray-700 leading-relaxed font-body">
                   To deliver quality-driven, compliant, and strategic solutions
                   to clients through professional expertise and
                   technology-enabled execution.
@@ -510,17 +428,23 @@ const LandingPage = () => {
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
                 Ready to Partner with Excellence?
               </h2>
-              <p className="text-lg text-primary-light mb-8 max-w-2xl mx-auto">
+              <p className="text-lg text-primary-light mb-8 max-w-2xl mx-auto font-body">
                 Let us help you navigate complex financial challenges with
                 precision, transparency, and strategic insight.
               </p>
               <div className="flex gap-4 justify-center flex-wrap">
-                <button className="py-4 px-8 bg-white text-primary-dark text-base font-heading rounded-full hover:bg-primary-light transition-all">
-                  Schedule a Consultation
-                </button>
-                <button className="py-4 px-8 border-2 border-white text-white text-base font-heading rounded-full hover:bg-white hover:text-primary-dark transition-all">
+                <Link
+                  to={"/contact"}
+                  className="py-4 px-8 bg-white text-primary-dark text-base font-heading rounded-full hover:bg-primary-light transition-all"
+                >
+                  Get In Tech
+                </Link>
+                <Link
+                  to={"/services"}
+                  className="py-4 px-8 border-2 border-white text-white text-base font-heading rounded-full hover:bg-white hover:text-primary-dark transition-all"
+                >
                   View Our Services
-                </button>
+                </Link>
               </div>
             </div>
           </AnimatedSection>
@@ -600,7 +524,7 @@ const TrustCounter = ({ value, suffix, label, type }) => {
           )}
         </div>
 
-        <p className="text-sm md:text-base mt-2 text-white/90 group-hover:text-white transition-colors duration-300">
+        <p className="text-sm md:text-base mt-2 text-white/90 group-hover:text-white transition-colors duration-300 font-body">
           {label}
         </p>
 

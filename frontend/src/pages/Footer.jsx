@@ -27,7 +27,6 @@ const Footer = () => {
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
     { name: "Services", path: "/services" },
-    { name: "Team", path: "/team" },
     { name: "Contact Us", path: "/contact" },
   ];
 
@@ -43,7 +42,6 @@ const Footer = () => {
     { name: "Privacy Policy", path: "/privacy-policy" },
     { name: "Terms & Conditions", path: "/terms-of-service" },
     { name: "Legal Disclaimer", path: "/legal-disclaimer" },
-    { name: "Refund Policy", path: "/refund-policy" },
   ];
 
   const socialLinks = [
@@ -68,7 +66,7 @@ const Footer = () => {
       </div>
 
       {/* Newsletter Section */}
-      <div className="relative border-b border-white/10">
+      {/* <div className="relative border-b border-white/10">
         <div className="container mx-auto px-5 md:px-10 lg:px-20 py-12 md:py-16">
           <AnimatedSection animation="fade-up" delay={100}>
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
@@ -107,7 +105,7 @@ const Footer = () => {
             </div>
           </AnimatedSection>
         </div>
-      </div>
+      </div> */}
 
       {/* Main Footer Content */}
       <div className="relative container mx-auto px-5 md:px-10 lg:px-20 py-12 md:py-16">
@@ -123,7 +121,7 @@ const Footer = () => {
                     className="h-16 md:h-20 w-auto hover:scale-105 transition-transform"
                   />
                 </Link> */}
-                <p className="text-white/80 leading-relaxed">
+                <p className="text-white/80 leading-relaxed font-body">
                   S T A R S & Co. LLP is a Category I Chartered Accountancy firm
                   committed to delivering reliable, ethical, and forward-looking
                   professional solutions since 2013.
@@ -132,27 +130,27 @@ const Footer = () => {
                 {/* Contact Info */}
                 <div className="space-y-3">
                   <a
-                    href="tel:+919890214990"
-                    className="flex items-center gap-3 text-white/80 hover:text-primary-light transition-colors group"
+                    href="tel:+919819082799"
+                    className="flex items-center gap-3 text-white/80 hover:text-primary-light transition-colors group font-body"
                   >
                     <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-primary-light/20 transition-colors">
                       <MdPhone className="text-lg" />
                     </div>
-                    <span>+91 98902 14990</span>
+                    <span>+91 9819082799</span>
                   </a>
 
                   <a
-                    href="mailto:capmc22@gmail.com"
-                    className="flex items-center gap-3 text-white/80 hover:text-primary-light transition-colors group"
+                    href="mailto:info@starsca.co.in"
+                    className="flex items-center gap-3 text-white/80 hover:text-primary-light transition-colors group font-body"
                   >
                     <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-primary-light/20 transition-colors">
                       <MdEmail className="text-lg" />
                     </div>
-                    <span>capmc22@gmail.com</span>
+                    <span>info@starsca.co.in</span>
                   </a>
 
                   <a
-                    href="https://maps.google.com/?q=306+Linkway+Estate+Premises+Malad+West+Mumbai"
+                    href="https://maps.app.goo.gl/J4PwDYf3UaMqBkbe7"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-start gap-3 text-white/80 hover:text-primary-light transition-colors group"
@@ -160,9 +158,9 @@ const Footer = () => {
                     <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-primary-light/20 transition-colors flex-shrink-0">
                       <MdLocationOn className="text-lg" />
                     </div>
-                    <span className="text-sm leading-relaxed">
-                      306, Linkway Estate Premises, Above Greens Restaurant, New
-                      Link Road, Malad (West), Mumbai - 400064
+                    <span className="text-sm leading-relaxed font-body">
+                      1201-A, Lotus Arc One, New Link Road, Opp. Tanishq
+                      Showroom, Andheri West, Mumbai- 400013,
                     </span>
                   </a>
                 </div>
@@ -196,7 +194,7 @@ const Footer = () => {
                   <li key={i}>
                     <Link
                       to={link.path}
-                      className="text-white/70 hover:text-primary-light transition-colors inline-flex items-center gap-2 group"
+                      className="text-white/70 hover:text-primary-light transition-colors inline-flex items-center gap-2 group font-body"
                     >
                       <span className="w-0 group-hover:w-2 h-0.5 bg-primary-light transition-all"></span>
                       {link.name}
@@ -218,7 +216,7 @@ const Footer = () => {
                   <li key={i}>
                     <Link
                       to={link.path}
-                      className="text-white/70 hover:text-primary-light transition-colors inline-flex items-center gap-2 group"
+                      className="text-white/70 hover:text-primary-light transition-colors inline-flex items-center gap-2 group font-body"
                     >
                       <span className="w-0 group-hover:w-2 h-0.5 bg-primary-light transition-all"></span>
                       {link.name}
@@ -240,7 +238,7 @@ const Footer = () => {
                   <li key={i}>
                     <Link
                       to={link.path}
-                      className="text-white/70 hover:text-primary-light transition-colors inline-flex items-center gap-2 group"
+                      className="text-white/70 hover:text-primary-light transition-colors inline-flex items-center gap-2 group font-body"
                     >
                       <span className="w-0 group-hover:w-2 h-0.5 bg-primary-light transition-all"></span>
                       {link.name}
