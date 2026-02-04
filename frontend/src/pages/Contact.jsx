@@ -170,9 +170,9 @@ const Contact = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="w-full h-full relative">
-        <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary-light/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+      <section className="contact_bg">
+        {/* <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary-light/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div> */}
         <div className="relative z-20 min-h-[60vh] container mx-auto px-5 md:px-10 lg:px-20 flex flex-col gap-3 justify-end py-10">
           <AnimatedSection animation="fade-down" delay={200}>
             <div className="flex items-center gap-2">
@@ -198,7 +198,7 @@ const Contact = () => {
             </p>
           </AnimatedSection>
         </div>
-        <img src={landing} alt="" className="w-full h-[50vh] object-cover" />
+        {/* <img src={landing} alt="" className="w-full h-[50vh] object-cover" /> */}
       </section>
 
       {/* Contact Info Cards */}

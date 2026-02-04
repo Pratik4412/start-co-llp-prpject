@@ -127,3 +127,10 @@ footer * {
 footer a:hover {
     transform: translateY(-2px);
 }
+.contact_bg{
+    background-image: url(../src/assets/men.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+}
