@@ -73,7 +73,7 @@ const Contact = () => {
         </svg>
       ),
       title: "Phone",
-      details: ["+91 9819082799", "022-42640413", "022-42640414"],
+      details: ["+91 9819082799", "022-42640413"],
       link: "tel:+919819082799",
     },
     {
@@ -93,8 +93,6 @@ const Contact = () => {
         </svg>
       ),
       title: "Email",
-      //
-      //
       details: ["info@starsca.co.in", "admin@starsca.co.in"],
       link: "mailto:info@starsca.co.in",
     },
@@ -146,7 +144,7 @@ const Contact = () => {
         </svg>
       ),
       title: "Business Hours",
-      details: ["Monday - Friday: 10:00 AM - 6:30 PM", "Sunday: Closed"],
+      details: ["Monday - Saturday: 10:00 AM - 6:30 PM", "Sunday: Closed"],
       link: null,
     },
   ];
@@ -172,40 +170,6 @@ const Contact = () => {
   return (
     <div>
       {/* Hero Section */}
-      {/* <section className="w-full h-full relative hero-section">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-dark/90 via-gray-900/80 to-primary-dark/90 z-10"></div>
-        <img
-          src={landing}
-          alt="Contact us"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        <div className="relative z-20 min-h-[60vh] container mx-auto px-5 md:px-10 lg:px-20 flex flex-col gap-6 justify-center py-20">
-          <AnimatedSection animation="fade-down" delay={200}>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-12 h-[3px] rounded-lg bg-primary-light"></div>
-              <h6 className="font-body font-semibold text-primary-light text-base uppercase tracking-wide">
-                Contact Us
-              </h6>
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection animation="fade-up" delay={300}>
-            <h1 className="text-4xl md:text-7xl font-heading font-bold text-white leading-tight">
-              Let's Start a
-              <br />
-              <span className="text-primary-light">Conversation</span>
-            </h1>
-          </AnimatedSection>
-
-          <AnimatedSection animation="fade-up" delay={400}>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl font-body">
-              We're here to help you navigate your financial journey. Reach out
-              to us for expert guidance and personalized solutions.
-            </p>
-          </AnimatedSection>
-        </div>
-      </section> */}
       <section className="w-full h-full relative">
         <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary-light/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
@@ -257,13 +221,38 @@ const Contact = () => {
                     {info.title}
                   </h3>
                   <div className="space-y-2">
-                    {info.details.map((detail, j) => (
-                      <p key={j} className="text-gray-600 text-sm">
-                        {detail}
-                      </p>
-                    ))}
+                    {info.title === "Phone" &&
+                      info.details.map((number, j) => (
+                        <a
+                          key={j}
+                          href={`tel:${number.replace(/\s+/g, "")}`}
+                          className="block text-gray-600 hover:text-primary-dark"
+                        >
+                          {number}
+                        </a>
+                      ))}
+
+                    {info.title === "Email" &&
+                      info.details.map((email, j) => (
+                        <a
+                          key={j}
+                          href={`mailto:${email}`}
+                          className="block text-gray-600 hover:text-primary-dark"
+                        >
+                          {email}
+                        </a>
+                      ))}
+
+                    {info.title !== "Phone" &&
+                      info.title !== "Email" &&
+                      info.details.map((detail, j) => (
+                        <p key={j} className="text-gray-600 text-sm">
+                          {detail}
+                        </p>
+                      ))}
                   </div>
-                  {info.link && (
+
+                  {/* {info.link && (
                     <a
                       href={info.link}
                       target={info.link.startsWith("http") ? "_blank" : "_self"}
@@ -285,7 +274,7 @@ const Contact = () => {
                         />
                       </svg>
                     </a>
-                  )}
+                  )} */}
                 </div>
               </AnimatedSection>
             ))}
@@ -514,24 +503,11 @@ const Contact = () => {
                 </form>
               </div>
             </AnimatedSection>
-
             {/* Right Side - Map and Additional Info */}
             <div className="space-y-8">
               {/* Map */}
               <AnimatedSection animation="fade-left" delay={300}>
                 <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-                  <div className="h-80 bg-gray-200">
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4559.488725246986!2d72.82988287587733!3d19.13798075002255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b70061e2b64b%3A0x88fddfe7fd8c10a8!2sArcOne%20by%20Lotus%20Developers!5e1!3m2!1sen!2sin!4v1769759203906!5m2!1sen!2sin"
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen=""
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="Office Location"
-                    ></iframe>
-                  </div>
                   <div className="p-6">
                     <h3 className="text-xl font-heading font-bold text-gray-900 mb-2">
                       Visit Our Office
@@ -718,7 +694,7 @@ const Contact = () => {
                       strokeLinejoin="round"
                       strokeWidth={2}
                       d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
+                    />
                   </svg>
                   Call Now
                 </a>

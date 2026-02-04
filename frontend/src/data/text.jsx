@@ -12,14 +12,14 @@ export const menuBar = [
     path: "/",
     name: "Home",
   },
-  {
-    path: "/about",
-    name: "About",
-  },
-  {
-    path: "/services",
-    name: "Services",
-  },
+  // {
+  //   path: "/about",
+  //   name: "About",
+  // },
+  // {
+  //   path: "/services",
+  //   name: "Services",
+  // },
   {
     path: "/Contact",
     name: "Contact",

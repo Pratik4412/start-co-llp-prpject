@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { menuBar } from "../data/text";
-import logo from "../assets/logo-preview.png";
+import logo from "../assets/logo.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-
-  // Handle scroll effect for header
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -17,17 +15,13 @@ const Header = () => {
         setIsScrolled(false);
       }
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu when route changes
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location]);
-
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -49,7 +43,6 @@ const Header = () => {
               isScrolled ? "shadow-lg border border-gray-100" : "shadow-md"
             }`}
           >
-            {/* Logo */}
             <Link to="/" className="flex items-center">
               <img
                 src={logo}
@@ -59,8 +52,6 @@ const Header = () => {
                 }`}
               />
             </Link>
-
-            {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-8">
               {menuBar.map((item, i) => (
                 <Link
@@ -85,15 +76,14 @@ const Header = () => {
             </nav>
 
             {/* CTA Button (Desktop) */}
-            <div className="hidden lg:flex items-center gap-4">
+            {/* <div className="hidden lg:flex items-center gap-4">
               <Link
                 to="/contact"
                 className="py-2.5 px-6 bg-primary-dark text-white text-sm font-medium rounded-full hover:bg-opacity-90 transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 Get in Touch
               </Link>
-            </div>
-
+            </div> */}
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -174,8 +164,6 @@ const Header = () => {
               </svg>
             </button>
           </div>
-
-          {/* Mobile Menu Items */}
           <nav className="flex-1 overflow-y-auto py-6">
             <ul className="space-y-1 px-4">
               {menuBar.map((item, i) => (
@@ -194,15 +182,13 @@ const Header = () => {
               ))}
             </ul>
           </nav>
-
-          {/* Mobile Menu Footer */}
           <div className="p-6 border-t border-gray-200 space-y-4">
-            <Link
+            {/* <Link
               to="/contact"
               className="block w-full py-3 px-6 bg-primary-dark text-white text-center text-sm font-medium rounded-full hover:bg-opacity-90 transition-all"
             >
               Get in Touch
-            </Link>
+            </Link> */}
             <a
               href="tel:+919819082799"
               className="flex items-center justify-center gap-2 text-primary-dark hover:text-primary-dark/80 transition-all"

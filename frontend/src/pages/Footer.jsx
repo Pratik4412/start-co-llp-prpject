@@ -11,7 +11,7 @@ import {
 import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
 import AnimatedSection from "../components/AnimatedSection";
 import ca_logo from "../assets/ca-logo.svg";
-
+import class_co_1 from "../assets/class-co2.svg";
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -58,54 +58,29 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-gradient-to-br from-primary-dark via-gray-900 to-primary-dark text-white overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none z-[1]">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <img
+            src={class_co_1}
+            alt="Background Model Icon"
+            className="
+    w-[600px] h-[600px]
+    md:w-[700px] md:h-[700px]
+    lg:w-[850px] lg:h-[850px]
+    object-contain
+    opacity-20
+    mix-blend-soft-light
+  "
+          />
+        </div>
+      </div>
+
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary-light/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary-light/5 rounded-full blur-3xl animate-pulse animation-delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/[0.02] rounded-full blur-3xl"></div>
       </div>
-
-      {/* Newsletter Section */}
-      {/* <div className="relative border-b border-white/10">
-        <div className="container mx-auto px-5 md:px-10 lg:px-20 py-12 md:py-16">
-          <AnimatedSection animation="fade-up" delay={100}>
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-              <div className="text-center md:text-left">
-                <h3 className="text-2xl md:text-3xl font-heading font-bold mb-2">
-                  Stay Updated with Financial Insights
-                </h3>
-                <p className="text-white/70 text-base">
-                  Subscribe to our newsletter for expert tips, regulatory
-                  updates, and industry trends.
-                </p>
-              </div>
-
-              <form
-                onSubmit={handleSubscribe}
-                className="flex gap-3 w-full md:w-auto"
-              >
-                <div className="relative flex-1 md:w-80">
-                  <MdEmail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl" />
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email"
-                    required
-                    className="w-full pl-12 pr-4 py-3 bg-white/10 border border-white/20 rounded-full text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-primary-light focus:border-transparent transition-all"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="px-8 py-3 bg-primary-light text-primary-dark font-heading font-semibold rounded-full hover:bg-white transition-all shadow-lg hover:shadow-xl whitespace-nowrap"
-                >
-                  {isSubscribed ? "Subscribed! ✓" : "Subscribe"}
-                </button>
-              </form>
-            </div>
-          </AnimatedSection>
-        </div>
-      </div> */}
 
       {/* Main Footer Content */}
       <div className="relative container mx-auto px-5 md:px-10 lg:px-20 py-12 md:py-16">
