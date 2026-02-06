@@ -327,7 +327,7 @@ const Services = () => {
                         to={"/contact"}
                         className="py-3 px-8 bg-primary-dark text-white text-base font-heading rounded-full hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl flex items-center gap-2 group"
                       >
-                        Get In Tech
+                        Get In Touch
                         <svg
                           className="w-5 h-5 group-hover:translate-x-1 transition-transform"
                           fill="none"
@@ -396,7 +396,7 @@ const Services = () => {
               </p>
               <div className="flex gap-4 justify-center flex-wrap">
                 {/* <button className="py-4 px-8 bg-white text-primary-dark text-base font-heading rounded-full hover:bg-primary-light transition-all shadow-xl">
-                  Get In Tech
+                  Get In Touch
                 </button> */}
                 <Link
                   to={"/contact"}

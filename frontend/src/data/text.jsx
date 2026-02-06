@@ -4,7 +4,7 @@ import three from "../assets/team_images/Haresh.png";
 import four from "../assets/team_images/Pratik.jpeg";
 import five from "../assets/team_images/Rachna.png";
 import six from "../assets/team_images/Sachin.png";
-import seven from "../assets/team_images/Tulsyan.png";
+import seven from "../assets/team_images/tulsyan.jpg";
 import eghit from "../assets/team_images/Vijyatta.jpeg";
 
 export const menuBar = [

@@ -1,10 +1,13 @@
 import React from "react";
 import AnimatedSection from "./AnimatedSection";
 import { ourTeam } from "../data/text";
-
+import imageM from "../assets/team_images/CA. Prashant Mittal.jpeg";
 const OurTeam = () => {
   return (
-    <section className="bg-white py-12 md:py-20 relative overflow-visible">
+    <section
+      className="bg-white py-12 md:py-20 relative overflow-visible"
+      id="team"
+    >
       {/* Background decorations */}
       <div className="absolute top-20 right-0 w-96 h-96 bg-primary-light/5 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-20 left-0 w-96 h-96 bg-primary-dark/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -63,7 +66,44 @@ const OurTeam = () => {
           </div>
 
           {/* Right Column - Scrollable Team Grid */}
-          <div className="lg:w-7/12 w-full">
+          <div className="lg:w-7/12 w-full flex flex-col gap-8">
+            <div className="flex items-star flex-col lg:flex-row  bg-white shadow-md hover:shadow-2xl transition-all duration-500 h-full">
+              {/* Image Container */}
+              <div className="lg:w-1/2 h-full gap-3 bg-gray-100 flex items-start flex-col p-3">
+                <div className="w-full">
+                  <img
+                    src={imageM}
+                    alt="Prashant Mittal"
+                    className=" rounded object-cover object-left-top"
+                  />
+                </div>
+                <div className="w-full ">
+                  <h3 className="text-xl md:text-xl font-heading font-bold text-gray-900 group-hover:text-primary-dark transition-colors text-center">
+                    Chairman Emeritus CA. Prashant Mittal
+                  </h3>
+                  {/* <h6 className="text-sm md:text-base font-body">BCA</h6> */}
+                </div>
+              </div>
+
+              {/* Info Section */}
+              <div className="p-3 bg-white w-full h-full">
+                <p className="text-gray-600 font-body">
+                  CA. Prashant Mittal brings vision, regulatory depth, and
+                  execution discipline to STARS & Co. LLP. Qualifying as a
+                  Chartered Accountant at just 19 years of age, he emerged early
+                  as one of the youngest professionals of his generation,
+                  setting high standards of professional excellence. With
+                  extensive experience across audits, taxation, banking,
+                  regulatory advisory, and corporate governance, he has played a
+                  key role in building robust control frameworks and risk-aware
+                  advisory systems for institutions and enterprises. As Chairman
+                  Emeritus, he provides strategic oversight and mentorship,
+                  ensuring that STARS remains focused on accountability,
+                  precision, and institution-grade advisory aligned with
+                  evolving regulatory expectations
+                </p>
+              </div>
+            </div>
             <div className="grid md:grid-cols-2 gap-6 md:gap-8">
               {ourTeam.map((member, i) => (
                 <AnimatedSection
@@ -91,32 +131,35 @@ const OurTeam = () => {
 // TeamMemberCard component remains the same
 const TeamMemberCard = ({ image, name, position, index, edu }) => {
   return (
-    <div className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-2xl transition-all duration-500 ">
-      {/* Image Container */}
-      <div className="relative overflow-hidden w-full h-full  bg-gray-100 flex items-start p-2">
-        <div className="w-[60%]">
-          <img
-            src={image}
-            alt={name}
-            className="w-[120px] h-[120px] rounded-full object-cover object-left-top"
-          />
+    <>
+      <div className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-2xl transition-all duration-500 ">
+        {/* Image Container */}
+        <div className="relative overflow-hidden w-full h-full  bg-gray-100 flex items-start gap-3 p-2">
+          <div className="w-[60%]">
+            <img
+              src={image}
+              alt={name}
+              className="w-[120px] h-[120px] rounded-full object-cover object-left-top"
+            />
+          </div>
+          <div className="w-full ">
+            <h3 className="text-lg md:text-xl font-heading font-bold text-gray-900 group-hover:text-primary-dark transition-colors">
+              {name}
+            </h3>
+            <h6 className="text-sm md:text-base font-body">{edu}</h6>
+            <p className="text-xs ">Partner</p>
+          </div>
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         </div>
-        <div className="w-full ">
-          <h3 className="text-xl md:text-xl font-heading font-bold text-gray-900 group-hover:text-primary-dark transition-colors">
-            {name}
-          </h3>
-          <h6 className="text-sm md:text-base font-body">{edu}</h6>
-        </div>
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-      </div>
 
-      {/* Info Section */}
-      <div className="p-6 bg-white ">
-        <p className="text-gray-600 font-body">{position}</p>
-        <div className="w-12 h-1 bg-primary-dark/20 mt-4 rounded-full group-hover:w-full group-hover:bg-primary-dark transition-all duration-500"></div>
-      </div>
-    </div>
+        {/* Info Section */}
+        <div className="p-6 bg-white ">
+          <p className="text-gray-600 font-body">{position}</p>
+          <div className="w-12 h-1 bg-primary-dark/20 mt-4 rounded-full group-hover:w-full group-hover:bg-primary-dark transition-all duration-500"></div>
+        </div>
+      </div>{" "}
+    </>
   );
 };
 

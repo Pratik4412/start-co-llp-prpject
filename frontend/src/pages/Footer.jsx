@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../assets/logo-preview.png";
 import { Link } from "react-router-dom";
 import {
@@ -12,21 +12,32 @@ import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
 import AnimatedSection from "../components/AnimatedSection";
 import ca_logo from "../assets/ca-logo.svg";
 import class_co_1 from "../assets/class-co2.svg";
+import { useNavigate } from "react-router-dom";
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const navigate = useNavigate();
+  const navigateAndScroll = (sectionId) => {
+    navigate("/");
 
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    setIsSubscribed(true);
-    setEmail("");
-    setTimeout(() => setIsSubscribed(false), 3000);
+    // wait for LandingPage to render
+    setTimeout(() => {
+      if (!sectionId) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 200);
   };
-
   const navigationLinks = [
-    { name: "Home", path: "/" },
-    { name: "About Us", path: "/about" },
-    { name: "Services", path: "/services" },
+    { name: "Home", sectionId: null },
+    { name: "About Us", sectionId: "About-Us" },
+    { name: "Services", sectionId: "services" },
+    { name: "Team", sectionId: "team" },
     { name: "Contact Us", path: "/contact" },
   ];
 
@@ -42,18 +53,22 @@ const Footer = () => {
     { name: "Privacy Policy", path: "/privacy-policy" },
     { name: "Terms & Conditions", path: "/terms-of-service" },
     { name: "Legal Disclaimer", path: "/legal-disclaimer" },
+    {
+      name: "Download our E-brochure",
+      path: "https://drive.google.com/file/d/1T37F1muX6QEWJq1Ly22seZikDMKDDmcI/view",
+    },
   ];
 
   const socialLinks = [
-    { icon: <FaFacebookF />, link: "https://facebook.com", label: "Facebook" },
+    // { icon: <FaFacebookF />, link: "https://facebook.com", label: "Facebook" },
     { icon: <FaLinkedinIn />, link: "https://linkedin.com", label: "LinkedIn" },
-    { icon: <FaTwitter />, link: "https://twitter.com", label: "Twitter" },
-    {
-      icon: <FaInstagram />,
-      link: "https://instagram.com",
-      label: "Instagram",
-    },
-    { icon: <FaYoutube />, link: "https://youtube.com", label: "YouTube" },
+    // { icon: <FaTwitter />, link: "https://twitter.com", label: "Twitter" },
+    // {
+    //   icon: <FaInstagram />,
+    //   link: "https://instagram.com",
+    //   label: "Instagram",
+    // },
+    // { icon: <FaYoutube />, link: "https://youtube.com", label: "YouTube" },
   ];
 
   return (
@@ -84,18 +99,11 @@ const Footer = () => {
 
       {/* Main Footer Content */}
       <div className="relative container mx-auto px-5 md:px-10 lg:px-20 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
+        <div className="flex items-start lg:justify-between flex-col lg:flex-row gap-6">
           {/* Brand Section */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 w-full ">
             <AnimatedSection animation="fade-right" delay={200}>
               <div className="space-y-6">
-                {/* <Link to="/">
-                  <img
-                    src={logo}
-                    alt="S T A R S & Co. LLP"
-                    className="h-16 md:h-20 w-auto hover:scale-105 transition-transform"
-                  />
-                </Link> */}
                 <p className="text-white/80 leading-relaxed font-body">
                   S T A R S & Co. LLP is a Category I Chartered Accountancy firm
                   committed to delivering reliable, ethical, and forward-looking
@@ -146,11 +154,6 @@ const Footer = () => {
                     <div className="w-20 h-20 bg-white rounded-lg flex items-center justify-center">
                       {/* <span className="text-2xl font-bold text-primary-light "> */}
                       <img src={ca_logo} alt="" className="w-full h-full" />
-                      {/* </span> */}
-                    </div>
-                    <div className="text-primary-light">
-                      <p className="text-xs font-semibold">Category I</p>
-                      <p className="text-xs">RBI Empanelled</p>
                     </div>
                   </div>
                 </div>
@@ -159,7 +162,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 w-full flex lg:justify-center">
             <AnimatedSection animation="fade-up" delay={300}>
               <h3 className="text-xl font-heading font-bold mb-6 text-primary-light">
                 Quick Links
@@ -167,43 +170,31 @@ const Footer = () => {
               <ul className="space-y-3">
                 {navigationLinks.map((link, i) => (
                   <li key={i}>
-                    <Link
-                      to={link.path}
-                      className="text-white/70 hover:text-primary-light transition-colors inline-flex items-center gap-2 group font-body"
-                    >
-                      <span className="w-0 group-hover:w-2 h-0.5 bg-primary-light transition-all"></span>
-                      {link.name}
-                    </Link>
+                    {link.path ? (
+                      // Contact (normal route)
+                      <Link
+                        to={link.path}
+                        className="text-white/70 hover:text-primary-light transition-colors inline-flex items-center gap-2 group font-body"
+                      >
+                        <span className="w-0 group-hover:w-2 h-0.5 bg-primary-light transition-all"></span>
+                        {link.name}
+                      </Link>
+                    ) : (
+                      // Landing page section scroll
+                      <button
+                        onClick={() => navigateAndScroll(link.sectionId)}
+                        className="text-white/70 hover:text-primary-light transition-colors inline-flex items-center gap-2 group font-body"
+                      >
+                        <span className="w-0 group-hover:w-2 h-0.5 bg-primary-light transition-all"></span>
+                        {link.name}
+                      </button>
+                    )}
                   </li>
                 ))}
               </ul>
             </AnimatedSection>
           </div>
-
-          {/* Services */}
-          <div className="lg:col-span-3">
-            <AnimatedSection animation="fade-up" delay={400}>
-              <h3 className="text-xl font-heading font-bold mb-6 text-primary-light">
-                Our Services
-              </h3>
-              <ul className="space-y-3">
-                {serviceLinks.map((link, i) => (
-                  <li key={i}>
-                    <Link
-                      to={link.path}
-                      className="text-white/70 hover:text-primary-light transition-colors inline-flex items-center gap-2 group font-body"
-                    >
-                      <span className="w-0 group-hover:w-2 h-0.5 bg-primary-light transition-all"></span>
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </AnimatedSection>
-          </div>
-
-          {/* Legal */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 w-full flex lg:justify-center">
             <AnimatedSection animation="fade-up" delay={500}>
               <h3 className="text-xl font-heading font-bold mb-6 text-primary-light">
                 Legal
@@ -213,6 +204,7 @@ const Footer = () => {
                   <li key={i}>
                     <Link
                       to={link.path}
+                      target="_blank"
                       className="text-white/70 hover:text-primary-light transition-colors inline-flex items-center gap-2 group font-body"
                     >
                       <span className="w-0 group-hover:w-2 h-0.5 bg-primary-light transition-all"></span>
@@ -221,29 +213,6 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-
-              {/* Credentials */}
-              {/* <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
-                <h4 className="text-sm font-semibold mb-3 text-primary-light">
-                  Our Credentials
-                </h4>
-                <div className="space-y-2 text-xs">
-                  <div className="flex justify-between">
-                    <span className="text-white/60">ICAI Reg:</span>
-                    <span className="text-white/90 font-mono">
-                      135781W/W100111
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-white/60">RBI Code:</span>
-                    <span className="text-white/90 font-mono">951335</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-white/60">PAN:</span>
-                    <span className="text-white/90 font-mono">AAOFP8306J</span>
-                  </div>
-                </div>
-              </div> */}
             </AnimatedSection>
           </div>
         </div>

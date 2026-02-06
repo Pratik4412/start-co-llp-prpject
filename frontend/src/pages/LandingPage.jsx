@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import AnimatedSection from "../components/AnimatedSection";
 import MapValue from "../components/homeSection/MapValue";
 // import { FaAward, FaHandshake, FaChartLine, FaShieldAlt } from "react-icons/fa";
@@ -44,7 +44,8 @@ const LandingPage = () => {
     { value: "ISO", suffix: "", label: "Compliant Systems", type: "text" },
   ];
   const [activeService, setActiveService] = useState("audit");
-
+  const sectionRef = useRef(null);
+  const serviceRefs = useRef({});
   const services = {
     audit: {
       title: "Audit & Assurance",
@@ -207,6 +208,64 @@ const LandingPage = () => {
         "Professional preparation of comprehensive project reports and budget planning.",
     },
   ];
+  const serviceOrder = [
+    "audit",
+    "taxation",
+    "bankAudits",
+    "corporateFinance",
+    "businessRestructuring",
+    "fema",
+    "portfolio",
+    "companyLaw",
+    "international",
+  ];
+
+  const updateActiveService = useCallback(() => {
+    if (!sectionRef.current) return;
+
+    const sectionRect = sectionRef.current.getBoundingClientRect();
+    const sectionTop = sectionRect.top + window.scrollY;
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+
+    // Check which service section is most visible
+    let mostVisibleService = activeService;
+    let maxVisibleHeight = 0;
+
+    serviceOrder.forEach((serviceKey) => {
+      const serviceElement = serviceRefs.current[serviceKey];
+      if (serviceElement) {
+        const rect = serviceElement.getBoundingClientRect();
+        const elementTop = rect.top + window.scrollY;
+        const elementHeight = rect.height;
+
+        // Check if element is visible in viewport
+        const visibleTop = Math.max(scrollY, elementTop);
+        const visibleBottom = Math.min(
+          scrollY + windowHeight,
+          elementTop + elementHeight,
+        );
+        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+
+        if (visibleHeight > maxVisibleHeight) {
+          maxVisibleHeight = visibleHeight;
+          mostVisibleService = serviceKey;
+        }
+      }
+    });
+
+    setActiveService(mostVisibleService);
+  }, [activeService]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      requestAnimationFrame(updateActiveService);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [updateActiveService]);
+
   return (
     <div className="">
       {/* Hero Section */}
@@ -242,12 +301,14 @@ const LandingPage = () => {
                 >
                   Explore Our Services
                 </a>
-                <Link
-                  to={"/contact"}
+                {/* <Link to={"/contact"}>Get In Touch</Link> */}
+                <a
+                  href="https://drive.google.com/file/d/1T37F1muX6QEWJq1Ly22seZikDMKDDmcI/view"
+                  target="_blank"
                   className="py-3 px-8 transition-all duration-300 ease-in-out bg-primary-light text-primary-dark text-base font-heading rounded-full hover:bg-white"
                 >
-                  Get In Tech
-                </Link>
+                  Download our E-brochure (PDF)
+                </a>
               </div>
             </AnimatedSection>
           </div>
@@ -278,7 +339,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      <section className="bg-light-bg">
+      <section className="bg-light-bg" id="About-Us">
         <div className="container mx-auto px-5 md:px-10 lg:px-20 py-10 md:py-20 flex items-center md:flex-row flex-col gap-8 md:gap-12">
           <div className="w-full flex flex-col gap-6 justify-center">
             <AnimatedSection
@@ -315,25 +376,6 @@ const LandingPage = () => {
                 professionalism. We are empanelled with leading nationalized and
                 private sector banks and hold RBI, IBA, and CAG empanelments.
               </p>
-              {/* <Link
-                to={"/about"}
-                className="w-fit py-3 px-8 bg-primary-dark text-white text-base font-heading rounded-full flex items-center gap-2 hover:bg-opacity-90 transition-all"
-              >
-                Learn More About Us
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </Link> */}
             </div>
           </AnimatedSection>
         </div>
@@ -516,163 +558,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Services Content Section with Sticky Sidebar */}
-      <section
-        className="bg-gradient-to-br from-primary-dark py-12 md:py-20 relative overflow-visible"
-        id="services"
-      >
-        <div className="absolute top-20 right-0 w-96 h-96 bg-primary-light/5 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div className="container mx-auto px-5 md:px-10 lg:px-20">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
-            {/* Left Sidebar - Sticky Popular Services */}
-            <div className="lg:w-4/12 lg:sticky lg:top-32 self-start h-fit w-full">
-              {/* <AnimatedSection animation="fade-right" delay={200}> */}
-              <div className="bg-gradient-to-br from-primary-dark to-gray-900 rounded-2xl p-8 shadow-2xl">
-                <h3 className="text-2xl md:text-3xl font-heading font-bold text-white mb-6">
-                  Popular services
-                </h3>
-
-                <nav className="space-y-3">
-                  {Object.entries(services).map(([key, service]) => (
-                    <button
-                      key={key}
-                      onClick={() => setActiveService(key)}
-                      className={`w-full text-left px-6 py-4 rounded-xl font-medium transition-all duration-300 flex items-center justify-between group ${
-                        activeService === key
-                          ? "bg-primary-light text-primary-dark"
-                          : "bg-white/10 text-white hover:bg-white/20"
-                      }`}
-                    >
-                      <span className="text-base">{service.title}</span>
-                      <svg
-                        className={`w-5 h-5 transition-transform duration-300 ${
-                          activeService === key
-                            ? "rotate-45"
-                            : "group-hover:translate-x-1"
-                        }`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
-                    </button>
-                  ))}
-                </nav>
-              </div>
-              {/* </AnimatedSection> */}
-            </div>
-
-            {/* Right Content - Service Details */}
-            <div className="lg:w-8/12 w-full">
-              <AnimatedSection animation="fade-left" delay={300}>
-                {/* Active Service Content */}
-                <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
-                  <div className="relative h-80 overflow-hidden">
-                    <img
-                      src={services[activeService].image}
-                      alt={services[activeService].title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 via-primary-dark/40 to-transparent"></div>
-                    <div className="absolute bottom-0 left-0 right-0 p-8">
-                      <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-2">
-                        {services[activeService].title}
-                      </h2>
-                    </div>
-                  </div>
-
-                  <div className="p-8">
-                    <h3 className="text-xl font-heading font-bold text-primary-dark mb-4">
-                      Building a strong financial foundation
-                    </h3>
-                    <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                      {services[activeService].description}
-                    </p>
-
-                    <div className="border-t border-gray-200 pt-6">
-                      <h4 className="text-lg font-heading font-bold text-gray-900 mb-4">
-                        What We Offer:
-                      </h4>
-                      <div className="grid md:grid-cols-2 gap-4">
-                        {services[activeService].details.map((detail, i) => (
-                          <div
-                            key={i}
-                            className="flex items-center gap-3 p-3 bg-light-bg rounded-lg hover:shadow-md transition-shadow"
-                          >
-                            <div className="w-2 h-2 bg-primary-dark rounded-full flex-shrink-0"></div>
-                            <span className="text-gray-700">{detail}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="mt-8 flex gap-4 flex-wrap">
-                      <Link
-                        to={"/contact"}
-                        className="py-3 px-8 bg-primary-dark text-white text-base font-heading rounded-full hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl flex items-center gap-2 group"
-                      >
-                        Get In Tech
-                        <svg
-                          className="w-5 h-5 group-hover:translate-x-1 transition-transform"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M17 8l4 4m0 0l-4 4m4-4H3"
-                          />
-                        </svg>
-                      </Link>
-                      {/* <button className="py-3 px-8 border-2 border-primary-dark text-primary-dark text-base font-heading rounded-full hover:bg-primary-dark hover:text-white transition-all">
-                        Learn More
-                      </button> */}
-                    </div>
-                  </div>
-                </div>
-              </AnimatedSection>
-
-              {/* Specialized Services Section */}
-              <AnimatedSection animation="fade-up" delay={400}>
-                <div className="bg-gradient-to-br from-light-bg to-white rounded-2xl p-8 shadow-lg">
-                  <div className="mb-8">
-                    <div className="flex items-center gap-2 mb-4">
-                      <div className="w-12 h-[3px] rounded-lg bg-primary-dark"></div>
-                      <h6 className="font-body font-semibold text-primary-dark text-base uppercase tracking-wide">
-                        Specialized Services
-                      </h6>
-                    </div>
-                    <h3 className="text-2xl md:text-3xl font-heading font-bold text-gray-900">
-                      Advanced Solutions for Complex Challenges
-                    </h3>
-                  </div>
-
-                  <div className="space-y-4">
-                    {specializedServices.map((service, i) => (
-                      <SpecializedServiceCard
-                        key={i}
-                        title={service.title}
-                        description={service.description}
-                        index={i}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </AnimatedSection>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="bg-white py-12 md:py-20">
         <div className="container mx-auto px-5 md:px-10 lg:px-20">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
@@ -739,7 +624,268 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+      {/* Services Content Section with Sticky Sidebar */}
+      {/* <section
+        className="bg-gradient-to-br from-primary-dark py-12 md:py-20 relative overflow-visible"
+        id="services"
+      >
+        <div className="absolute top-20 right-0 w-96 h-96 bg-primary-light/5 rounded-full blur-3xl pointer-events-none"></div>
 
+        <div className="container mx-auto px-5 md:px-10 lg:px-20">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+            <div className="lg:w-4/12 lg:sticky lg:top-32 self-start h-fit w-full">
+              <div className="bg-gradient-to-br from-primary-dark to-gray-900 rounded-2xl p-8 shadow-2xl">
+                <h3 className="text-2xl md:text-3xl font-heading font-bold text-white mb-6">
+                  Popular services
+                </h3>
+
+                <nav className="space-y-3">
+                  {Object.entries(services).map(([key, service]) => (
+                    <button
+                      key={key}
+                      onClick={() => setActiveService(key)}
+                      className={`w-full text-left px-6 py-4 rounded-xl font-medium transition-all duration-300 flex items-center justify-between group ${
+                        activeService === key
+                          ? "bg-primary-light text-primary-dark"
+                          : "bg-white/10 text-white hover:bg-white/20"
+                      }`}
+                    >
+                      <span className="text-base">{service.title}</span>
+                      <svg
+                        className={`w-5 h-5 transition-transform duration-300 ${
+                          activeService === key
+                            ? "rotate-45"
+                            : "group-hover:translate-x-1"
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </button>
+                  ))}
+                </nav>
+              </div>
+            </div>
+
+            <div className="lg:w-8/12 w-full">
+              <AnimatedSection animation="fade-left" delay={300}>
+                <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+                  <div className="relative h-80 overflow-hidden">
+                    <img
+                      src={services[activeService].image}
+                      alt={services[activeService].title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 via-primary-dark/40 to-transparent"></div>
+                    <div className="absolute bottom-0 left-0 right-0 p-8">
+                      <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-2">
+                        {services[activeService].title}
+                      </h2>
+                    </div>
+                  </div>
+
+                  <div className="p-8">
+                    <h3 className="text-xl font-heading font-bold text-primary-dark mb-4">
+                      Building a strong financial foundation
+                    </h3>
+                    <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                      {services[activeService].description}
+                    </p>
+
+                    <div className="border-t border-gray-200 pt-6">
+                      <h4 className="text-lg font-heading font-bold text-gray-900 mb-4">
+                        What We Offer:
+                      </h4>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        {services[activeService].details.map((detail, i) => (
+                          <div
+                            key={i}
+                            className="flex items-center gap-3 p-3 bg-light-bg rounded-lg hover:shadow-md transition-shadow"
+                          >
+                            <div className="w-2 h-2 bg-primary-dark rounded-full flex-shrink-0"></div>
+                            <span className="text-gray-700">{detail}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </AnimatedSection>
+
+              <AnimatedSection animation="fade-up" delay={400}>
+                <div className="bg-gradient-to-br from-light-bg to-white rounded-2xl p-8 shadow-lg">
+                  <div className="mb-8">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-12 h-[3px] rounded-lg bg-primary-dark"></div>
+                      <h6 className="font-body font-semibold text-primary-dark text-base uppercase tracking-wide">
+                        Specialized Services
+                      </h6>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-heading font-bold text-gray-900">
+                      Advanced Solutions for Complex Challenges
+                    </h3>
+                  </div>
+
+                  <div className="space-y-4">
+                    {specializedServices.map((service, i) => (
+                      <SpecializedServiceCard
+                        key={i}
+                        title={service.title}
+                        description={service.description}
+                        index={i}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </AnimatedSection>
+            </div>
+          </div>
+        </div>
+      </section> */}
+      <section
+        ref={sectionRef}
+        className="bg-gradient-to-br from-primary-dark py-12 md:py-20 relative overflow-visible"
+        id="services"
+      >
+        <div className="absolute top-20 right-0 w-96 h-96 bg-primary-light/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div className="container mx-auto px-5 md:px-10 lg:px-20 flex flex-col gap-8">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+            {/* LEFT SIDEBAR - Sticky & Auto-scroll */}
+            <div className="lg:w-4/12 lg:sticky lg:top-32 self-start h-fit w-full">
+              <div className="bg-gradient-to-br from-primary-dark to-gray-900 rounded-2xl p-3 lg:p-8 shadow-2xl">
+                <h3 className="text-2xl md:text-3xl font-heading font-bold text-white mb-6">
+                  Services
+                </h3>
+                <nav className="space-y-3">
+                  {Object.entries(services).map(([key, service]) => (
+                    <button
+                      key={key}
+                      onClick={() => {
+                        serviceRefs.current[key]?.scrollIntoView({
+                          behavior: "smooth",
+                          block: "start",
+                        });
+                      }}
+                      className={`w-full text-left px-6 py-4 rounded-xl font-medium transition-all duration-300 flex items-center justify-between group ${
+                        activeService === key
+                          ? "bg-primary-light text-primary-dark scale-105 shadow-lg"
+                          : "bg-white/10 text-white hover:bg-white/20"
+                      }`}
+                    >
+                      <span className="text-base">{service.title}</span>
+                      <svg
+                        className={`w-5 h-5 transition-transform duration-300 ${
+                          activeService === key
+                            ? "rotate-45 scale-110"
+                            : "group-hover:translate-x-1"
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </button>
+                  ))}
+                </nav>
+              </div>
+            </div>
+            {/* RIGHT CONTENT - Service Details */}
+            <div className="lg:w-8/12 w-full space-y-12">
+              {/* Individual Service Sections */}
+              {serviceOrder.map((serviceKey) => (
+                <div
+                  key={serviceKey}
+                  ref={(el) => {
+                    serviceRefs.current[serviceKey] = el;
+                  }}
+                  className="service-section bg-white rounded-2xl shadow-lg overflow-hidden"
+                  style={{ scrollMarginTop: "100px" }}
+                >
+                  <div className="relative h-80 overflow-hidden">
+                    <img
+                      src={services[serviceKey].image}
+                      alt={services[serviceKey].title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 via-primary-dark/40 to-transparent"></div>
+                    <div className="absolute bottom-0 left-0 right-0 p-8">
+                      <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-2">
+                        {services[serviceKey].title}
+                      </h2>
+                    </div>
+                  </div>
+
+                  <div className="p-3 lg:p-8">
+                    <h3 className="text-xl font-heading font-bold text-primary-dark mb-4">
+                      Building a strong financial foundation
+                    </h3>
+                    <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                      {services[serviceKey].description}
+                    </p>
+
+                    <div className="border-t border-gray-200 pt-6">
+                      <h4 className="text-lg font-heading font-bold text-gray-900 mb-4">
+                        What We Offer:
+                      </h4>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        {services[serviceKey].details.map((detail, i) => (
+                          <div
+                            key={i}
+                            className="flex items-center gap-3 p-3 bg-light-bg rounded-lg hover:shadow-md transition-shadow"
+                          >
+                            <div className="w-2 h-2 bg-primary-dark rounded-full flex-shrink-0"></div>
+                            <span className="text-gray-700">{detail}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <AnimatedSection animation="fade-up" delay={400}>
+            <div className="bg-gradient-to-br from-light-bg to-white rounded-2xl p-3 lg:p-8 shadow-lg">
+              <div className="mb-8">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-12 h-[3px] rounded-lg bg-primary-dark"></div>
+                  <h6 className="font-body font-semibold text-primary-dark text-base uppercase tracking-wide">
+                    Specialized Services
+                  </h6>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-heading font-bold text-gray-900">
+                  Advanced Solutions for Complex Challenges
+                </h3>
+              </div>
+
+              <div className="space-y-4">
+                {specializedServices.map((service, i) => (
+                  <SpecializedServiceCard
+                    key={i}
+                    title={service.title}
+                    description={service.description}
+                    index={i}
+                  />
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
       {/* Why Choose Us Section - Based on Your Image */}
       <section className="bg-white py-12 md:py-20 relative overflow-hidden">
         <div className="absolute top-20 left-0 w-72 h-72 bg-primary-light/5 rounded-full blur-3xl"></div>
@@ -873,7 +1019,7 @@ const LandingPage = () => {
                   to={"/contact"}
                   className="py-4 px-8 bg-white text-primary-dark text-base font-heading rounded-full hover:bg-primary-light transition-all"
                 >
-                  Get In Tech
+                  Get In Touch
                 </Link>
                 <a
                   href="#services"

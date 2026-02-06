@@ -144,7 +144,7 @@ const Contact = () => {
         </svg>
       ),
       title: "Business Hours",
-      details: ["Monday - Saturday: 10:00 AM - 6:30 PM", "Sunday: Closed"],
+      details: ["Monday - Saturday: 09:30 AM - 7:00 PM", "Sunday: Closed"],
       link: null,
     },
   ];
@@ -204,7 +204,6 @@ const Contact = () => {
       {/* Contact Info Cards */}
       <section className="bg-white py-12 md:py-16 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary-light/5 rounded-full blur-3xl pointer-events-none"></div>
-
         <div className="container mx-auto px-5 md:px-10 lg:px-20">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {contactInfo.map((info, i) => (
@@ -290,15 +289,11 @@ const Contact = () => {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* Left Side - Form */}
             <AnimatedSection animation="fade-right" delay={200}>
-              <div className="bg-white p-8 md:p-10 rounded-2xl shadow-2xl">
+              <div className="bg-white p-4 lg:p-8 md:p-10 rounded-2xl shadow-2xl">
                 <div className="mb-8">
                   <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
                     Send us a message
                   </h2>
-                  <p className="text-gray-600 text-lg">
-                    Fill out the form below and we'll get back to you within 24
-                    hours.
-                  </p>
                 </div>
 
                 {submitStatus === "success" && (
@@ -639,7 +634,7 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-white py-12 md:py-20">
+      {/* <section className="bg-white py-12 md:py-20">
         <div className="container mx-auto px-5 md:px-10 lg:px-20">
           <AnimatedSection animation="fade-up" delay={200}>
             <div className="text-center mb-12">
@@ -664,7 +659,7 @@ const Contact = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="bg-gradient-to-br from-primary-dark to-gray-900 py-16 md:py-20">
