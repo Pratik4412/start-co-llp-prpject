@@ -303,11 +303,11 @@ const LandingPage = () => {
                 </a>
                 {/* <Link to={"/contact"}>Get In Touch</Link> */}
                 <a
-                  href="https://drive.google.com/file/d/1T37F1muX6QEWJq1Ly22seZikDMKDDmcI/view"
+                  href="https://drive.google.com/file/d/1TilNMw57fSHJworKw4-uDmdiO70LinaR/view"
                   target="_blank"
                   className="py-3 px-8 transition-all duration-300 ease-in-out bg-primary-light text-primary-dark text-base font-heading rounded-full hover:bg-white"
                 >
-                  Download our E-brochure (PDF)
+                  Download our E-brochure
                 </a>
               </div>
             </AnimatedSection>

@@ -55,7 +55,7 @@ const Footer = () => {
     { name: "Legal Disclaimer", path: "/legal-disclaimer" },
     {
       name: "Download our E-brochure",
-      path: "https://drive.google.com/file/d/1T37F1muX6QEWJq1Ly22seZikDMKDDmcI/view",
+      path: "https://drive.google.com/file/d/1TilNMw57fSHJworKw4-uDmdiO70LinaR/view",
     },
   ];
 
