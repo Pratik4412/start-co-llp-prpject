@@ -67,27 +67,27 @@ const OurTeam = () => {
 
           {/* Right Column - Scrollable Team Grid */}
           <div className="lg:w-7/12 w-full flex flex-col gap-8">
-            <div className="flex items-star flex-col lg:flex-row  bg-white shadow-md hover:shadow-2xl transition-all duration-500 h-full">
+            <div className="flex items-star flex-col lg:flex-row  bg-white shadow-md hover:shadow-2xl transition-all duration-500 h-full ">
               {/* Image Container */}
-              <div className="lg:w-1/2 h-full gap-3 bg-gray-100 flex items-start flex-col p-3">
-                <div className="w-full">
-                  <img
-                    src={imageM}
-                    alt="Prashant Mittal"
-                    className=" rounded object-cover object-left-top"
-                  />
-                </div>
+              <div className="lg:w-1/2 gap-3 bg-gray-100 flex items-start flex-col p-3">
+                {/* <div className="w-full"> */}
+                <img
+                  src={imageM}
+                  alt="Prashant Mittal"
+                  className=" rounded-full object-cover object-left-top"
+                />
+                {/* </div> */}
                 <div className="w-full ">
                   <h3 className="text-xl md:text-xl font-heading font-bold text-gray-900 group-hover:text-primary-dark transition-colors text-center">
-                    Chairman Emeritus CA. Prashant Mittal
+                    CA. Prashant Mittal <br />
+                    Chairman Emeritus
                   </h3>
-                  {/* <h6 className="text-sm md:text-base font-body">BCA</h6> */}
                 </div>
               </div>
 
               {/* Info Section */}
-              <div className="p-3 bg-white w-full h-full">
-                <p className="text-gray-600 font-body">
+              <div className=" bg-white w-full h-full">
+                <p className="text-gray-600 font-body p-6 ">
                   CA. Prashant Mittal brings vision, regulatory depth, and
                   execution discipline to STARS & Co. LLP. Qualifying as a
                   Chartered Accountant at just 19 years of age, he emerged early

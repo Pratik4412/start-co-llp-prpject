@@ -147,16 +147,6 @@ const Footer = () => {
                     </span>
                   </a>
                 </div>
-
-                {/* Certification Badge */}
-                <div className="inline-block bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-lg">
-                  <div className="flex items-center gap-3">
-                    <div className="w-20 h-20 bg-white rounded-lg flex items-center justify-center">
-                      {/* <span className="text-2xl font-bold text-primary-light "> */}
-                      <img src={ca_logo} alt="" className="w-full h-full" />
-                    </div>
-                  </div>
-                </div>
               </div>
             </AnimatedSection>
           </div>
@@ -197,7 +187,7 @@ const Footer = () => {
           <div className="lg:col-span-3 w-full flex lg:justify-center">
             <AnimatedSection animation="fade-up" delay={500}>
               <h3 className="text-xl font-heading font-bold mb-6 text-primary-light">
-                Legal
+                Other
               </h3>
               <ul className="space-y-3 mb-8">
                 {legalLinks.map((link, i) => (
@@ -215,43 +205,52 @@ const Footer = () => {
               </ul>
             </AnimatedSection>
           </div>
+          {/* Certification Badge */}
+          <div className="inline-block bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-lg">
+            <div className="flex items-center gap-3">
+              <div className="w-20 h-20 bg-white rounded-lg flex items-center justify-center">
+                {/* <span className="text-2xl font-bold text-primary-light "> */}
+                <img src={ca_logo} alt="" className="w-full h-full" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Bottom Bar */}
       <div className="relative border-t border-white/10">
         <div className="container mx-auto px-5 md:px-10 lg:px-20 py-6">
-          <AnimatedSection animation="fade-up" delay={600}>
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              {/* Copyright */}
-              <div className="text-center md:text-left">
-                <p className="text-white/60 text-sm">
-                  © {new Date().getFullYear()} S T A R S & Co. LLP. All rights
-                  reserved.
-                </p>
-                <p className="text-white/40 text-xs mt-1">
+          {/* <AnimatedSection animation="fade-up" delay={600}> */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            {/* Copyright */}
+            <div className="text-center md:text-left">
+              <p className="text-white/60 text-sm">
+                © {new Date().getFullYear()} S T A R S & Co. LLP. All rights
+                reserved.
+              </p>
+              {/* <p className="text-white/40 text-xs mt-1">
                   Designed with excellence for financial professionals
-                </p>
-              </div>
-
-              {/* Social Media */}
-              <div className="flex items-center gap-3">
-                <span className="text-white/60 text-sm mr-2">Follow us:</span>
-                {socialLinks.map((social, i) => (
-                  <a
-                    key={i}
-                    href={social.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary-light hover:text-primary-dark transition-all hover:scale-110 hover:-translate-y-1 group"
-                  >
-                    <span className="text-lg">{social.icon}</span>
-                  </a>
-                ))}
-              </div>
+                </p> */}
             </div>
-          </AnimatedSection>
+
+            {/* Social Media */}
+            <div className="flex items-center gap-3">
+              <span className="text-white/60 text-sm mr-2">Follow us:</span>
+              {socialLinks.map((social, i) => (
+                <a
+                  key={i}
+                  href={social.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary-light hover:text-primary-dark transition-all hover:scale-110 hover:-translate-y-1 group"
+                >
+                  <span className="text-lg">{social.icon}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+          {/* </AnimatedSection> */}
         </div>
       </div>
 
